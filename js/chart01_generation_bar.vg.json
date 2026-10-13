@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 700,
+    "height": 380,
+
+    "data": {
+        "url": "../data/pokemon_master.csv"
+    },
+
+    "mark": {
+        "type": "bar",
+        "color": "#3B4CCA"
+    },
+
+    "encoding": {
+        "x": {
+        "field": "generation",
+        "type": "ordinal",
+        "sort": [
+            "Generation I",
+            "Generation II",
+            "Generation III",
+            "Generation IV",
+            "Generation V",
+            "Generation VI",
+            "Generation VII",
+            "Generation VIII",
+            "Generation IX"
+        ],
+        "title": "Generation"
+        },
+
+        "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Pokémon introduced"
+        },
+
+        "tooltip": [
+        {
+            "field": "generation",
+            "type": "ordinal",
+            "title": "Generation"
+        },
+        {
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Pokémon introduced"
+        }
+        ]
+    }
+}
