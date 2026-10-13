@@ -1,0 +1,37 @@
+generation_number,generation,game,market,release_date,lag_days,latitude,longitude
+1,Generation I,Red/Green (Japan) / Red/Blue (international),Japan,1996-02-27,0,36.2048,138.2529
+1,Generation I,Red/Green (Japan) / Red/Blue (international),North America,1998-09-28,944,39.8283,-98.5795
+1,Generation I,Red/Green (Japan) / Red/Blue (international),Australia,1998-10-23,969,-25.2744,133.7751
+1,Generation I,Red/Green (Japan) / Red/Blue (international),Europe,1999-10-05,1316,54.5260,15.2551
+2,Generation II,Gold/Silver,Japan,1999-11-21,0,36.2048,138.2529
+2,Generation II,Gold/Silver,North America,2000-10-15,329,39.8283,-98.5795
+2,Generation II,Gold/Silver,Australia,2000-10-13,327,-25.2744,133.7751
+2,Generation II,Gold/Silver,Europe,2001-04-06,502,54.5260,15.2551
+3,Generation III,Ruby/Sapphire,Japan,2002-11-21,0,36.2048,138.2529
+3,Generation III,Ruby/Sapphire,North America,2003-03-19,118,39.8283,-98.5795
+3,Generation III,Ruby/Sapphire,Australia,2003-04-03,133,-25.2744,133.7751
+3,Generation III,Ruby/Sapphire,Europe,2003-07-25,246,54.5260,15.2551
+4,Generation IV,Diamond/Pearl,Japan,2006-09-28,0,36.2048,138.2529
+4,Generation IV,Diamond/Pearl,North America,2007-04-22,206,39.8283,-98.5795
+4,Generation IV,Diamond/Pearl,Australia,2007-06-21,266,-25.2744,133.7751
+4,Generation IV,Diamond/Pearl,Europe,2007-07-27,302,54.5260,15.2551
+5,Generation V,Black/White,Japan,2010-09-18,0,36.2048,138.2529
+5,Generation V,Black/White,North America,2011-03-06,169,39.8283,-98.5795
+5,Generation V,Black/White,Australia,2011-03-10,173,-25.2744,133.7751
+5,Generation V,Black/White,Europe,2011-03-04,167,54.5260,15.2551
+6,Generation VI,X/Y,Japan,2013-10-12,0,36.2048,138.2529
+6,Generation VI,X/Y,North America,2013-10-12,0,39.8283,-98.5795
+6,Generation VI,X/Y,Australia,2013-10-12,0,-25.2744,133.7751
+6,Generation VI,X/Y,Europe,2013-10-12,0,54.5260,15.2551
+7,Generation VII,Sun/Moon,Japan,2016-11-18,0,36.2048,138.2529
+7,Generation VII,Sun/Moon,North America,2016-11-18,0,39.8283,-98.5795
+7,Generation VII,Sun/Moon,Australia,2016-11-18,0,-25.2744,133.7751
+7,Generation VII,Sun/Moon,Europe,2016-11-23,5,54.5260,15.2551
+8,Generation VIII,Sword/Shield,Japan,2019-11-15,0,36.2048,138.2529
+8,Generation VIII,Sword/Shield,North America,2019-11-15,0,39.8283,-98.5795
+8,Generation VIII,Sword/Shield,Australia,2019-11-15,0,-25.2744,133.7751
+8,Generation VIII,Sword/Shield,Europe,2019-11-15,0,54.5260,15.2551
+9,Generation IX,Scarlet/Violet,Japan,2022-11-18,0,36.2048,138.2529
+9,Generation IX,Scarlet/Violet,North America,2022-11-18,0,39.8283,-98.5795
+9,Generation IX,Scarlet/Violet,Australia,2022-11-18,0,-25.2744,133.7751
+9,Generation IX,Scarlet/Violet,Europe,2022-11-18,0,54.5260,15.2551
