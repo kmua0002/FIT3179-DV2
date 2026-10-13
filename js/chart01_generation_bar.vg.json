@@ -5,7 +5,7 @@
     "height": 380,
 
     "data": {
-        "url": "../data/pokemon_master.csv"
+        "url": "data/pokemon_master.csv"
     },
 
     "mark": {
