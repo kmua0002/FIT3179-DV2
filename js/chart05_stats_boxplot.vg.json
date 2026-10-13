@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 700,
+    "height": 420,
+
+    "data": {
+        "url": "https://kmua0002.github.io/FIT3179-DV2/data/pokemon_master.csv"
+    },
+
+    "mark": {
+        "type": "boxplot",
+        "extent": 1.5,
+        "size": 45
+    },
+
+    "encoding": {
+        "x": {
+        "field": "generation",
+        "type": "ordinal",
+        "sort": [
+            "Generation I",
+            "Generation II",
+            "Generation III",
+            "Generation IV",
+            "Generation V",
+            "Generation VI",
+            "Generation VII",
+            "Generation VIII",
+            "Generation IX"
+        ],
+        "title": null,
+        "axis": {
+            "labelAngle": 0,
+            "labelExpr": "replace(datum.label, 'Generation ', 'Gen ')",
+            "labelPadding": 8,
+            "ticks": false,
+            "domain": false
+        }
+        },
+
+        "y": {
+        "field": "total_stats",
+        "type": "quantitative",
+        "title": "Total base stats",
+        "scale": {
+            "zero": false
+        },
+        "axis": {
+            "gridColor": "#e5e5e5",
+            "domain": false,
+            "ticks": false
+        }
+        },
+
+        "color": {
+        "value": "#3B4CCA"
+        },
+
+        "tooltip": [
+        {
+            "field": "generation",
+            "type": "ordinal",
+            "title": "Generation"
+        }
+        ]
+    },
+
+    "config": {
+        "view": {
+        "stroke": null
+        },
+
+        "boxplot": {
+        "median": {
+            "color": "#FFCB05",
+            "strokeWidth": 3
+        },
+        "box": {
+            "fill": "#3B4CCA",
+            "fillOpacity": 0.75
+        },
+        "rule": {
+            "color": "#3B4CCA"
+        },
+        "ticks": {
+            "color": "#3B4CCA"
+        },
+        "outliers": {
+            "filled": true,
+            "color": "#777777",
+            "size": 25
+        }
+        }
+    }
+}

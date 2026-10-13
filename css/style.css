@@ -63,3 +63,8 @@ section h3 {
     color: #666666;
     margin-top: 10px;
 }
+
+#stats_boxplot {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
