@@ -1,0 +1,36 @@
+{"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "title": "Pokémon introduced by generation — test data",
+
+    "width": 700,
+    "height": 350,
+
+    "data": {
+        "values": [
+            {"generation": "Gen I", "pokemon": 151},
+            {"generation": "Gen II", "pokemon": 100},
+            {"generation": "Gen III", "pokemon": 135},
+            {"generation": "Gen IV", "pokemon": 107},
+            {"generation": "Gen V", "pokemon": 156}
+        ]
+    },
+
+    "mark": {
+        "type": "bar",
+        "color": "#FFCB05"
+    },
+
+    "encoding": {
+        "x": {
+        "field": "generation",
+        "type": "nominal",
+        "title": "Generation"
+        },
+
+        "y": {
+        "field": "pokemon",
+        "type": "quantitative",
+        "title": "Pokémon introduced"
+        }
+    }
+}
