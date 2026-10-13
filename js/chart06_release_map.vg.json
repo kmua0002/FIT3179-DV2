@@ -1,0 +1,139 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 800,
+    "height": 450,
+
+    "params": [
+        {
+        "name": "generation_select",
+        "value": "Generation I",
+        "bind": {
+            "input": "select",
+            "options": [
+            "Generation I",
+            "Generation II",
+            "Generation III",
+            "Generation IV",
+            "Generation V",
+            "Generation VI",
+            "Generation VII",
+            "Generation VIII",
+            "Generation IX"
+            ],
+            "name": "Generation: "
+        }
+        }
+    ],
+
+    "projection": {
+        "type": "equalEarth"
+    },
+
+    "layer": [
+        {
+        "data": {
+            "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
+            "format": {
+            "type": "topojson",
+            "feature": "countries"
+            }
+        },
+
+        "mark": {
+            "type": "geoshape",
+            "fill": "#E8E8E8",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.5
+        }
+        },
+
+        {
+        "data": {
+            "url": "https://kmua0002.github.io/FIT3179-DV2/data/game_releases.csv"
+        },
+
+        "transform": [
+            {
+            "filter": "datum.generation === generation_select"
+            }
+        ],
+
+        "mark": {
+            "type": "circle",
+            "opacity": 0.8,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 1
+        },
+
+        "encoding": {
+            "longitude": {
+            "field": "longitude",
+            "type": "quantitative"
+            },
+
+            "latitude": {
+            "field": "latitude",
+            "type": "quantitative"
+            },
+
+            "size": {
+            "field": "lag_days",
+            "type": "quantitative",
+            "title": "Release delay (days)",
+            "scale": {
+                "domain": [0, 1316],
+                "range": [100, 1400]
+            }
+            },
+
+            "color": {
+            "field": "lag_days",
+            "type": "quantitative",
+            "title": "Release delay (days)",
+            "scale": {
+                "domain": [0, 1316],
+                "range": [
+                "#FFCB05",
+                "#D84A3A"
+                ]
+            }
+            },
+
+            "tooltip": [
+            {
+                "field": "generation",
+                "type": "nominal",
+                "title": "Generation"
+            },
+            {
+                "field": "game",
+                "type": "nominal",
+                "title": "Game"
+            },
+            {
+                "field": "market",
+                "type": "nominal",
+                "title": "Release market"
+            },
+            {
+                "field": "release_date",
+                "type": "nominal",
+                "title": "Release date"
+            },
+            {
+                "field": "lag_days",
+                "type": "quantitative",
+                "title": "Days after Japan"
+            }
+            ]
+        }
+        }
+    ],
+
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}
