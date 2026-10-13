@@ -1,0 +1,136 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 700,
+    "height": 500,
+
+    "data": {
+        "url": "https://kmua0002.github.io/FIT3179-DV2/data/pokemon_master.csv"
+    },
+
+    "transform": [
+        {
+        "fold": ["type1", "type2"],
+        "as": ["type_slot", "type"]
+        },
+        {
+        "filter": "isValid(datum.type) && datum.type != ''"
+        },
+        {
+        "calculate": "upper(substring(datum.type, 0, 1)) + substring(datum.type, 1)",
+        "as": "type_label"
+        },
+        {
+        "aggregate": [
+            {
+            "op": "count",
+            "as": "pokemon_count"
+            }
+        ],
+        "groupby": [
+            "generation_number",
+            "generation",
+            "type_label"
+        ]
+        }
+    ],
+
+    "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 1
+    },
+
+    "encoding": {
+        "x": {
+        "field": "generation",
+        "type": "ordinal",
+        "sort": [
+            "Generation I",
+            "Generation II",
+            "Generation III",
+            "Generation IV",
+            "Generation V",
+            "Generation VI",
+            "Generation VII",
+            "Generation VIII",
+            "Generation IX"
+        ],
+        "title": null,
+        "axis": {
+            "labelAngle": 0,
+            "labelExpr": "replace(datum.label, 'Generation ', 'Gen ')",
+            "ticks": false,
+            "domain": false,
+            "labelPadding": 8
+        }
+        },
+
+        "y": {
+        "field": "type_label",
+        "type": "nominal",
+        "sort": [
+            "Normal",
+            "Fire",
+            "Water",
+            "Electric",
+            "Grass",
+            "Ice",
+            "Fighting",
+            "Poison",
+            "Ground",
+            "Flying",
+            "Psychic",
+            "Bug",
+            "Rock",
+            "Ghost",
+            "Dragon",
+            "Dark",
+            "Steel",
+            "Fairy"
+        ],
+        "title": null,
+        "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelPadding": 8
+        }
+        },
+
+        "color": {
+        "field": "pokemon_count",
+        "type": "quantitative",
+        "title": "Pokémon count",
+        "scale": {
+            "range": [
+            "#EEF1FA",
+            "#3B4CCA"
+            ]
+        }
+        },
+
+        "tooltip": [
+        {
+            "field": "generation",
+            "type": "ordinal",
+            "title": "Generation"
+        },
+        {
+            "field": "type_label",
+            "type": "nominal",
+            "title": "Type"
+        },
+        {
+            "field": "pokemon_count",
+            "type": "quantitative",
+            "title": "Pokémon"
+        }
+        ]
+    },
+
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}

@@ -50,3 +50,16 @@ section h3 {
     margin-top: 15px;
     margin-bottom: 30px;
 }
+
+#type_heatmap {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.chart-note {
+    max-width: 760px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666666;
+    margin-top: 10px;
+}
