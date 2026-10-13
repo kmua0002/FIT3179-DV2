@@ -5,7 +5,7 @@
     "height": 380,
 
     "data": {
-        "url": "data/pokemon_master.csv"
+        "url": "https://kmua0002.github.io/FIT3179-DV2/data/pokemon_master.csv"
     },
 
     "mark": {
