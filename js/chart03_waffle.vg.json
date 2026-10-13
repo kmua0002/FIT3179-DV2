@@ -1,0 +1,83 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 500,
+    "height": 500,
+
+    "data": {
+        "sequence": {
+        "start": 1,
+        "stop": 101,
+        "as": "cell"
+        }
+    },
+
+    "transform": [
+        {
+        "calculate": "((datum.cell - 1) % 10) + 1",
+        "as": "column"
+        },
+        {
+        "calculate": "floor((datum.cell - 1) / 10) + 1",
+        "as": "row"
+        },
+        {
+        "calculate": "datum.cell <= 15 ? 'Generation I' : 'Later generations'",
+        "as": "category"
+        }
+    ],
+
+    "mark": {
+        "type": "square",
+        "size": 1800,
+        "cornerRadius": 3
+    },
+
+    "encoding": {
+        "x": {
+        "field": "column",
+        "type": "ordinal",
+        "axis": null
+        },
+
+        "y": {
+        "field": "row",
+        "type": "ordinal",
+        "sort": "descending",
+        "axis": null
+        },
+
+        "color": {
+        "field": "category",
+        "type": "nominal",
+        "scale": {
+            "domain": [
+            "Generation I",
+            "Later generations"
+            ],
+            "range": [
+            "#FFCB05",
+            "#D9DFEA"
+            ]
+        },
+        "legend": {
+            "title": null,
+            "orient": "bottom"
+        }
+        },
+
+        "tooltip": [
+        {
+            "field": "category",
+            "type": "nominal",
+            "title": "Pokémon group"
+        }
+        ]
+    },
+
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}

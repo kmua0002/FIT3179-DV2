@@ -45,3 +45,8 @@ section h3 {
     margin-top: 30px;
     font-weight: 600;
 }
+
+#waffle_chart {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
