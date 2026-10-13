@@ -1,7 +1,10 @@
 var vg_1 = "js/chart01_generation_bar.vg.json?v=2";
+var vg_2 = "js/chart02_cumulative_growth.vg.json?v=2";
 
 vegaEmbed("#generation_bar", vg_1, {
     actions: false
-}).then(function(result) {
-    console.log("Vega-Lite visualisation loaded.");
+}).catch(console.error);
+
+vegaEmbed("#cumulative_growth", vg_2, {
+    actions: false
 }).catch(console.error);

@@ -1,0 +1,142 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 700,
+    "height": 360,
+
+    "data": {
+        "url": "https://kmua0002.github.io/FIT3179-DV2/data/pokemon_master.csv"
+    },
+
+    "transform": [
+        {
+        "aggregate": [
+            {
+            "op": "count",
+            "as": "introduced"
+            }
+        ],
+        "groupby": [
+            "generation_number",
+            "generation"
+        ]
+        },
+
+        {
+        "window": [
+            {
+            "op": "sum",
+            "field": "introduced",
+            "as": "cumulative"
+            }
+        ],
+        "sort": [
+            {
+            "field": "generation_number",
+            "order": "ascending"
+            }
+        ]
+        }
+    ],
+
+    "encoding": {
+        "x": {
+        "field": "generation",
+        "type": "ordinal",
+        "sort": {
+            "field": "generation_number",
+            "order": "ascending"
+        },
+        "title": null,
+        "axis": {
+            "labelAngle": 0,
+            "labelExpr": "replace(datum.label, 'Generation ', 'Gen ')",
+            "labelPadding": 8,
+            "ticks": false,
+            "domain": false
+        }
+        },
+
+        "y": {
+        "field": "cumulative",
+        "type": "quantitative",
+        "title": "Cumulative Pokémon species",
+        "scale": {
+            "zero": true
+        },
+        "axis": {
+            "gridColor": "#e5e5e5",
+            "domain": false,
+            "ticks": false
+        }
+        }
+    },
+
+    "layer": [
+        {
+        "mark": {
+            "type": "line",
+            "strokeWidth": 3,
+            "color": "#3B4CCA"
+        }
+        },
+
+        {
+        "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 90,
+            "color": "#3B4CCA"
+        },
+
+        "encoding": {
+            "tooltip": [
+            {
+                "field": "generation",
+                "type": "ordinal",
+                "title": "Generation"
+            },
+            {
+                "field": "introduced",
+                "type": "quantitative",
+                "title": "New Pokémon"
+            },
+            {
+                "field": "cumulative",
+                "type": "quantitative",
+                "title": "Cumulative Pokédex"
+            }
+            ]
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "filter": "datum.generation_number === 1 || datum.generation_number === 9"
+            }
+        ],
+
+        "mark": {
+            "type": "text",
+            "dy": -14,
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "color": "#222222"
+        },
+
+        "encoding": {
+            "text": {
+            "field": "cumulative",
+            "type": "quantitative"
+            }
+        }
+        }
+    ],
+
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}
