@@ -1,4 +1,4 @@
-var vg_1 = "js/chart01_generation_bar.vg.json";
+var vg_1 = "js/chart01_generation_bar.vg.json?v=2";
 
 vegaEmbed("#generation_bar", vg_1, {
     actions: false
