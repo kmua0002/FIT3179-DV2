@@ -17,7 +17,7 @@
         "lookup": "id",
         "from": {
             "data": {
-            "url": "../data/region_inspirations.csv"
+            "url": "https://kmua0002.github.io/FIT3179-DV2/data/region_inspirations.csv"
             },
             "key": "id",
             "fields": [
