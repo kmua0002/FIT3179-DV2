@@ -1,0 +1,216 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 700,
+    "height": 330,
+
+    "data": {
+        "url": "https://kmua0002.github.io/FIT3179-DV2/data/pokemon_master.csv"
+    },
+
+    "transform": [
+        {
+        "filter": "datum.generation_number == 1 || datum.generation_number == 9"
+        },
+
+        {
+        "fold": [
+            "hp",
+            "attack",
+            "defense",
+            "sp_attack",
+            "sp_defense",
+            "speed"
+        ],
+        "as": [
+            "stat",
+            "stat_value"
+        ]
+        },
+
+        {
+        "calculate": "datum.stat == 'hp' ? 'HP' : datum.stat == 'attack' ? 'Attack' : datum.stat == 'defense' ? 'Defense' : datum.stat == 'sp_attack' ? 'Special Attack' : datum.stat == 'sp_defense' ? 'Special Defense' : 'Speed'",
+        "as": "stat_label"
+        },
+
+        {
+        "aggregate": [
+            {
+            "op": "mean",
+            "field": "stat_value",
+            "as": "average_stat"
+            }
+        ],
+        "groupby": [
+            "generation_number",
+            "generation",
+            "stat_label"
+        ]
+        }
+    ],
+
+    "encoding": {
+        "y": {
+        "field": "stat_label",
+        "type": "nominal",
+        "sort": [
+            "HP",
+            "Attack",
+            "Defense",
+            "Special Attack",
+            "Special Defense",
+            "Speed"
+        ],
+        "title": null,
+        "axis": {
+            "domain": false,
+            "ticks": false,
+            "labelPadding": 10
+        }
+        },
+
+        "x": {
+        "field": "average_stat",
+        "type": "quantitative",
+        "title": "Average base stat",
+        "scale": {
+            "domain": [60, 85],
+            "zero": false
+        },
+        "axis": {
+            "gridColor": "#E5E7EB",
+            "domain": false,
+            "ticks": false
+        }
+        }
+    },
+
+    "layer": [
+        {
+        "mark": {
+            "type": "line",
+            "stroke": "#CBD5E1",
+            "strokeWidth": 4
+        },
+
+        "encoding": {
+            "detail": {
+            "field": "stat_label"
+            },
+
+            "order": {
+            "field": "generation_number",
+            "type": "ordinal"
+            }
+        }
+        },
+
+        {
+        "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 150,
+            "stroke": "white",
+            "strokeWidth": 1.5
+        },
+
+        "encoding": {
+            "color": {
+            "field": "generation",
+            "type": "nominal",
+            "title": null,
+
+            "scale": {
+                "domain": [
+                "Generation I",
+                "Generation IX"
+                ],
+
+                "range": [
+                "#9AA4C8",
+                "#3B4CCA"
+                ]
+            },
+
+            "legend": {
+                "orient": "top"
+            }
+            },
+
+            "tooltip": [
+            {
+                "field": "generation",
+                "type": "nominal",
+                "title": "Generation"
+            },
+            {
+                "field": "stat_label",
+                "type": "nominal",
+                "title": "Stat"
+            },
+            {
+                "field": "average_stat",
+                "type": "quantitative",
+                "title": "Average",
+                "format": ".1f"
+            }
+            ]
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "filter": "datum.generation_number == 1"
+            }
+        ],
+
+        "mark": {
+            "type": "text",
+            "align": "right",
+            "dx": -9,
+            "fontSize": 11,
+            "color": "#667085"
+        },
+
+        "encoding": {
+            "text": {
+            "field": "average_stat",
+            "type": "quantitative",
+            "format": ".1f"
+            }
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "filter": "datum.generation_number == 9"
+            }
+        ],
+
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 9,
+            "fontSize": 11,
+            "fontWeight": "bold",
+            "color": "#3B4CCA"
+        },
+
+        "encoding": {
+            "text": {
+            "field": "average_stat",
+            "type": "quantitative",
+            "format": ".1f"
+            }
+        }
+        }
+    ],
+
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}

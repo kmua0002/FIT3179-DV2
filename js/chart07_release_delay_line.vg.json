@@ -1,0 +1,173 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 700,
+    "height": 330,
+
+    "data": {
+        "url": "https://kmua0002.github.io/FIT3179-DV2/data/game_releases.csv"
+    },
+
+    "transform": [
+        {
+        "filter": "datum.market != 'Japan'"
+        }
+    ],
+
+    "layer": [
+        {
+        "mark": {
+            "type": "line",
+            "strokeWidth": 3,
+            "point": {
+            "filled": true,
+            "size": 75
+            }
+        },
+
+        "encoding": {
+            "x": {
+            "field": "generation",
+            "type": "ordinal",
+            "sort": [
+                "Generation I",
+                "Generation II",
+                "Generation III",
+                "Generation IV",
+                "Generation V",
+                "Generation VI",
+                "Generation VII",
+                "Generation VIII",
+                "Generation IX"
+            ],
+            "title": null,
+            "axis": {
+                "labelAngle": 0,
+                "labelExpr": "replace(datum.label, 'Generation ', 'Gen ')",
+                "labelPadding": 8,
+                "ticks": false,
+                "domain": false
+            }
+            },
+
+            "y": {
+            "field": "lag_days",
+            "type": "quantitative",
+            "title": "Days after Japanese release",
+            "scale": {
+                "zero": true
+            },
+            "axis": {
+                "gridColor": "#E5E7EB",
+                "domain": false,
+                "ticks": false
+            }
+            },
+
+            "color": {
+            "field": "market",
+            "type": "nominal",
+            "title": null,
+            "scale": {
+                "domain": [
+                "North America",
+                "Europe",
+                "Australia"
+                ],
+                "range": [
+                "#3B4CCA",
+                "#E3350D",
+                "#2A9D8F"
+                ]
+            },
+            "legend": {
+                "orient": "top"
+            }
+            },
+
+            "tooltip": [
+            {
+                "field": "generation",
+                "type": "ordinal",
+                "title": "Generation"
+            },
+            {
+                "field": "game",
+                "type": "nominal",
+                "title": "Game"
+            },
+            {
+                "field": "market",
+                "type": "nominal",
+                "title": "Market"
+            },
+            {
+                "field": "release_date",
+                "type": "nominal",
+                "title": "Release date"
+            },
+            {
+                "field": "lag_days",
+                "type": "quantitative",
+                "title": "Days after Japan"
+            }
+            ]
+        }
+        },
+
+        {
+        "data": {
+            "values": [
+            {
+                "generation": "Generation I",
+                "lag_days": 1316,
+                "label": "Europe waited 1,316 days"
+            }
+            ]
+        },
+
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 8,
+            "dy": -10,
+            "fontSize": 11,
+            "fontWeight": "bold",
+            "color": "#E3350D"
+        },
+
+        "encoding": {
+            "x": {
+            "field": "generation",
+            "type": "ordinal",
+            "sort": [
+                "Generation I",
+                "Generation II",
+                "Generation III",
+                "Generation IV",
+                "Generation V",
+                "Generation VI",
+                "Generation VII",
+                "Generation VIII",
+                "Generation IX"
+            ]
+            },
+
+            "y": {
+            "field": "lag_days",
+            "type": "quantitative"
+            },
+
+            "text": {
+            "field": "label"
+            }
+        }
+        }
+    ],
+
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}
