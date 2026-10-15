@@ -1,0 +1,89 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 800,
+    "height": 430,
+
+    "data": {
+        "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
+        "format": {
+        "type": "topojson",
+        "feature": "countries"
+        }
+    },
+
+    "transform": [
+        {
+        "lookup": "id",
+        "from": {
+            "data": {
+            "url": "../data/region_inspirations.csv"
+            },
+            "key": "id",
+            "fields": [
+            "country",
+            "region_count",
+            "regions"
+            ]
+        }
+        }
+    ],
+
+    "projection": {
+        "type": "equalEarth"
+    },
+
+    "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.7
+    },
+
+    "encoding": {
+        "color": {
+        "condition": {
+            "test": "isValid(datum.region_count)",
+            "field": "region_count",
+            "type": "quantitative",
+            "title": "Inspired regions",
+            "scale": {
+            "domain": [1, 4],
+            "range": [
+                "#DDE5FF",
+                "#3B4CCA"
+            ]
+            }
+        },
+        "value": "#E8EAF0"
+        },
+
+        "tooltip": [
+        {
+            "field": "country",
+            "type": "nominal",
+            "title": "Real-world country"
+        },
+        {
+            "field": "region_count",
+            "type": "quantitative",
+            "title": "Pokémon regions inspired",
+            "format": ".0f"
+        },
+        {
+            "field": "regions",
+            "type": "nominal",
+            "title": "Regions"
+        }
+        ]
+    },
+
+    "config": {
+        "view": {
+        "stroke": null
+        },
+
+        "legend": {
+        "orient": "right"
+        }
+    }
+}
