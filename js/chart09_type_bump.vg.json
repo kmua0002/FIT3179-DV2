@@ -1,0 +1,251 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 700,
+    "height": 420,
+
+    "data": {
+        "url": "https://kmua0002.github.io/FIT3179-DV2/data/pokemon_master.csv"
+    },
+
+    "params": [
+        {
+        "name": "type_select",
+        "value": "Water",
+        "bind": {
+            "input": "select",
+            "name": "Highlight type: ",
+            "options": [
+            "Normal",
+            "Fire",
+            "Water",
+            "Electric",
+            "Grass",
+            "Ice",
+            "Fighting",
+            "Poison",
+            "Ground",
+            "Flying",
+            "Psychic",
+            "Bug",
+            "Rock",
+            "Ghost",
+            "Dragon",
+            "Dark",
+            "Steel",
+            "Fairy"
+            ]
+        }
+        }
+    ],
+
+    "transform": [
+        {
+        "fold": ["type1", "type2"],
+        "as": ["type_slot", "type"]
+        },
+
+        {
+        "filter": "isValid(datum.type) && datum.type != ''"
+        },
+
+        {
+        "calculate": "upper(substring(datum.type, 0, 1)) + substring(datum.type, 1)",
+        "as": "type_label"
+        },
+
+        {
+        "aggregate": [
+            {
+            "op": "count",
+            "as": "pokemon_count"
+            }
+        ],
+        "groupby": [
+            "generation_number",
+            "generation",
+            "type_label"
+        ]
+        },
+
+        {
+        "window": [
+            {
+            "op": "rank",
+            "as": "type_rank"
+            }
+        ],
+        "sort": [
+            {
+            "field": "pokemon_count",
+            "order": "descending"
+            }
+        ],
+        "groupby": [
+            "generation_number",
+            "generation"
+        ]
+        }
+    ],
+
+    "encoding": {
+        "x": {
+        "field": "generation",
+        "type": "ordinal",
+        "sort": [
+            "Generation I",
+            "Generation II",
+            "Generation III",
+            "Generation IV",
+            "Generation V",
+            "Generation VI",
+            "Generation VII",
+            "Generation VIII",
+            "Generation IX"
+        ],
+        "title": null,
+
+        "axis": {
+            "labelAngle": 0,
+            "labelExpr": "replace(datum.label, 'Generation ', 'Gen ')",
+            "labelPadding": 8,
+            "ticks": false,
+            "domain": false
+        }
+        },
+
+        "y": {
+        "field": "type_rank",
+        "type": "quantitative",
+        "title": "Rank within generation",
+
+        "scale": {
+            "domain": [1, 18],  
+            "reverse": true
+        },
+
+        "axis": {
+            "values": [1, 3, 5, 7, 9, 11, 13, 15, 17],
+            "gridColor": "#E5E7EB",
+            "domain": false,
+            "ticks": false
+        }
+        }
+    },
+
+    "layer": [
+        {
+        "mark": {
+            "type": "line",
+            "strokeWidth": 1.5,
+            "opacity": 0.25
+        },
+
+        "encoding": {
+            "detail": {
+            "field": "type_label"
+            },
+
+            "color": {
+            "value": "#AEB8CC"
+            },
+
+            "tooltip": [
+            {
+                "field": "generation",
+                "type": "ordinal",
+                "title": "Generation"
+            },
+            {
+                "field": "type_label",
+                "type": "nominal",
+                "title": "Type"
+            },
+            {
+                "field": "pokemon_count",
+                "type": "quantitative",
+                "title": "Pokémon introduced"
+            },
+            {
+                "field": "type_rank",
+                "type": "quantitative",
+                "title": "Rank"
+            }
+            ]
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "filter": "datum.type_label === type_select"
+            }
+        ],
+
+        "mark": {
+            "type": "line",
+            "strokeWidth": 4,
+            "color": "#3B4CCA",
+            "point": {
+            "filled": true,
+            "size": 100,
+            "color": "#FFCB05",
+            "stroke": "#3B4CCA",
+            "strokeWidth": 1.5
+            }
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "filter": "datum.type_label === type_select"
+            }
+        ],
+
+        "mark": {
+            "type": "text",
+            "dy": -12,
+            "fontSize": 11,
+            "fontWeight": "bold",
+            "color": "#3B4CCA"
+        },
+
+        "encoding": {
+            "text": {
+            "field": "type_rank",
+            "type": "quantitative"
+            }
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "filter": "datum.type_label === type_select && datum.generation_number == 9"
+            }
+        ],
+
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 12,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "#3B4CCA"
+        },
+
+        "encoding": {
+            "text": {
+            "field": "type_label"
+            }
+        }
+        }
+    ],
+
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}

@@ -6,6 +6,7 @@ var vg_5 = "js/chart05_stats_boxplot.vg.json?v=3";
 var vg_6 = "js/chart06_release_map.vg.json?v=3";
 var vg_7 = "js/chart07_release_delay_line.vg.json?v=3";
 var vg_8 = "js/chart08_stat_connected_dot.vg.json?v=3";
+var vg_9 = "js/chart09_type_bump.vg.json?v=3";
 
 
 vegaEmbed("#generation_bar", vg_1, {
@@ -44,5 +45,10 @@ vegaEmbed("#release_delay_line", vg_7, {
 
 
 vegaEmbed("#stat_connected_dot", vg_8, {
+    actions: false
+}).catch(console.error);
+
+
+vegaEmbed("#type_bump", vg_9, {
     actions: false
 }).catch(console.error);
