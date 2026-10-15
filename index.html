@@ -2,138 +2,671 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From 151 to 1000+ | Pokémon Data Visualisation</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>
+        From 151 to 1,025 | Pokémon Data Visualisation
+    </title>
+
+
+    <!-- Typography -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- Vega libraries -->
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
 </head>
+
 
 <body>
 
-    <main class="page">
+<main class="page">
 
-        <header class="hero">
-            <h1>From 151 to 1000+</h1>
-            <h2>How the Pokémon universe evolved across generations</h2>
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <header class="hero">
+
+        <div class="eyebrow">
+            Pokémon · Generations · Global Expansion
+        </div>
+
+
+        <div class="hero-grid">
+
+
+            <div>
+
+                <h1>
+                    From 151<br>
+
+                    to
+
+                    <span class="hero-highlight">
+                        1,025
+                    </span>
+                </h1>
+
+
+                <div class="hero-subtitle">
+                    How nine generations transformed
+                    the Pokémon universe
+                </div>
+
+
+                <p class="hero-copy">
+
+                    Pokémon has expanded dramatically since
+                    Generation I. Follow how the Pokédex,
+                    type composition, base statistics and
+                    global reach of the franchise changed
+                    over time.
+
+                </p>
+
+
+                <div class="hero-stats">
+
+                    <div class="stat-pill">
+                        <strong>151</strong>
+                        original species
+                    </div>
+
+                    <div class="stat-pill">
+                        <strong>9</strong>
+                        generations
+                    </div>
+
+                    <div class="stat-pill">
+                        <strong>1,025</strong>
+                        species by Gen IX
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="generation-grid"
+                aria-hidden="true"
+            >
+
+                <div class="generation-dot">
+                    I
+                </div>
+
+                <div class="generation-dot">
+                    II
+                </div>
+
+                <div class="generation-dot">
+                    III
+                </div>
+
+                <div class="generation-dot">
+                    IV
+                </div>
+
+                <div class="generation-dot highlight">
+                    V
+                </div>
+
+                <div class="generation-dot">
+                    VI
+                </div>
+
+                <div class="generation-dot">
+                    VII
+                </div>
+
+                <div class="generation-dot">
+                    VIII
+                </div>
+
+                <div class="generation-dot latest">
+                    IX
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         SECTION 01
+    ====================================== -->
+
+    <section class="story-section">
+
+
+        <div class="section-head">
+
+            <div class="section-number">
+                01
+            </div>
+
+
+            <div>
+
+                <div class="section-kicker">
+                    Pokédex Expansion
+                </div>
+
+
+                <h2>
+                    The Pokédex kept growing
+                </h2>
+
+
+                <p>
+
+                    Every generation expanded the roster,
+                    but the size of each expansion varied.
+                    Together those additions transformed
+                    the original 151 into more than one
+                    thousand species.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CHART 1 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                New Pokémon
+            </div>
+
+
+            <h3>
+                Generation V introduced the largest new roster
+            </h3>
+
 
             <p>
-                Pokémon has expanded dramatically since Generation I.
-                This visualisation explores how the Pokédex, types, statistics
-                and global reach of the franchise have changed over time.
+
+                Generation V added 156 Pokémon,
+                slightly more than the original
+                151 introduced in Generation I.
+
             </p>
-        </header>
 
-        <section>
-            <h2>1. The Pokédex kept growing</h2>
+
+            <div class="chart-frame">
+
+                <div id="generation_bar"></div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CHART 2 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                Cumulative Growth
+            </div>
+
+
+            <h3>
+                The Pokédex grew from 151 to more than 1,000 species
+            </h3>
+
 
             <p>
-                Every generation has expanded the Pokédex, but the size of each
-                expansion has varied considerably. Generation V introduced 156 Pokémon,
-                slightly more than the original 151 of Generation I.
-            </p>
 
-            <h3>Generation V introduced the largest new roster</h3>
-
-            <div id="generation_bar"></div>
-
-            <h3>The Pokédex grew from 151 to more than 1,000 species</h3>
-
-            <p>
-                Successive generations steadily expanded the Pokémon universe.
-                By Generation IX, the National Pokédex contained 1,025 species,
+                Successive generations steadily expanded
+                the Pokémon universe. By Generation IX,
+                the National Pokédex contained 1,025 species,
                 more than six times the original roster.
+
             </p>
 
-            <div id="cumulative_growth"></div>
 
-            <h3>The original 151 now make up only 14.7% of the Pokédex</h3>
+            <div class="chart-frame">
+
+                <div id="cumulative_growth"></div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CHART 3 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                Then and Now
+            </div>
+
+
+            <h3>
+                The original 151 now make up only 14.7% of the Pokédex
+            </h3>
+
 
             <p>
-                Generation I began with 151 Pokémon. Across nine generations,
-                the roster has grown to 1,025 species, meaning the original
-                generation now represents less than one-sixth of the modern Pokédex.
+
+                Generation I began with 151 Pokémon.
+                Across nine generations, that original
+                roster has become a relatively small
+                share of the modern Pokédex.
+
             </p>
 
-            <div id="waffle_chart"></div>
-        </section>
 
-        <section>
+            <div class="waffle-layout">
 
-            <h2>2. Pokémon changed too</h2>
+
+                <div class="chart-frame">
+
+                    <div id="waffle_chart"></div>
+
+                </div>
+
+
+                <aside class="waffle-insight">
+
+                    <div class="big-stat">
+                        14.7%
+                    </div>
+
+                    <div class="big-stat-label">
+                        of today's Pokédex began in Generation I
+                    </div>
+
+
+                    <div class="small-stat">
+
+                        <strong>151</strong>
+                        original Pokémon
+
+                        <br><br>
+
+                        <strong>1,025</strong>
+                        species by Generation IX
+
+                    </div>
+
+                </aside>
+
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+        TRANSITION
+    ====================================== -->
+
+    <div class="transition-panel">
+
+        <div class="transition-kicker">
+            From More → To Different
+        </div>
+
+
+        <h2>
+            The Pokédex did not simply get larger.
+            The Pokémon being added changed too.
+        </h2>
+
+
+        <p>
+
+            Looking beyond roster size reveals shifts
+            in type composition and the statistical
+            profile of Pokémon introduced across generations.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+        SECTION 02
+    ====================================== -->
+
+    <section class="story-section">
+
+
+        <div class="section-head">
+
+            <div class="section-number">
+                02
+            </div>
+
+
+            <div>
+
+                <div class="section-kicker">
+                    Types & Statistics
+                </div>
+
+
+                <h2>
+                    Pokémon changed too
+                </h2>
+
+
+                <p>
+
+                    Growth did not simply add more of the same.
+                    Type composition varied between generations,
+                    while the typical total base-stat profile
+                    generally shifted upward.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CHART 4 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                Type Composition
+            </div>
+
+
+            <h3>
+                Type composition shifted across generations
+            </h3>
+
 
             <p>
-                Growth did not simply add more of the same. The mix of Pokémon
-                types introduced in each generation has varied considerably,
-                revealing different patterns across the series.
+
+                Different generations introduced noticeably
+                different mixes of Pokémon types. Darker cells
+                represent a greater number of Pokémon of that type.
+
             </p>
 
-            <h3>Type composition shifted across generations</h3>
 
-            <div id="type_heatmap"></div>
+            <div class="chart-frame">
+
+                <div id="type_heatmap"></div>
+
+            </div>
+
 
             <p class="chart-note">
-                <strong>Note:</strong> Dual-type Pokémon are counted once for each of
-                their types. Types reflect current PokéAPI classifications, so Pokémon
-                that were reclassified later are shown using their current type.
+
+                <strong>Note:</strong>
+                Dual-type Pokémon are counted once for each
+                of their types. Types reflect current PokéAPI
+                classifications, so Pokémon that were
+                reclassified later are shown using their
+                current type.
+
             </p>
 
-            <h3>Typical base stats have generally increased in later generations</h3>
+        </article>
+
+
+
+        <!-- CHART 5 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                Base Statistics
+            </div>
+
+
+            <h3>
+                Typical base stats have generally increased in later generations
+            </h3>
+
 
             <p>
-                Pokémon introduced in later generations tend to have higher total base
-                stats, although there is substantial overlap between generations.
-                The median rises from 405 in Generation I to 488.5 in Generation IX.
+
+                Pokémon introduced in later generations
+                tend to have higher total base stats,
+                although there is substantial overlap.
+                The median rises from 405 in Generation I
+                to 488.5 in Generation IX.
+
             </p>
 
-            <div id="stats_boxplot"></div>
+
+            <div class="chart-frame">
+
+                <div id="stats_boxplot"></div>
+
+            </div>
+
 
             <p class="chart-note">
-                Total base stats are calculated as the sum of HP, Attack, Defense,
-                Special Attack, Special Defense and Speed. Outlying points represent
-                Pokémon beyond 1.5 times the interquartile range.
+
+                Total base stats are calculated as the sum
+                of HP, Attack, Defense, Special Attack,
+                Special Defense and Speed. Outlying points
+                represent Pokémon beyond 1.5 times the
+                interquartile range.
+
             </p>
 
-        </section>
+        </article>
 
-        <section>
 
-            <h2>3. Pokémon went global</h2>
+    </section>
+
+
+
+    <!-- =====================================
+        TRANSITION
+    ====================================== -->
+
+    <div class="transition-panel">
+
+        <div class="transition-kicker">
+            From Creatures → To a Global Franchise
+        </div>
+
+
+        <h2>
+            Pokémon's expansion was not limited to the Pokédex.
+        </h2>
+
+
+        <p>
+
+            The games themselves also changed how they reached
+            players, moving from staggered regional releases
+            toward near-simultaneous worldwide launches.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+        SECTION 03
+    ====================================== -->
+
+    <section class="story-section">
+
+
+        <div class="section-head">
+
+            <div class="section-number">
+                03
+            </div>
+
+
+            <div>
+
+                <div class="section-kicker">
+                    Global Reach
+                </div>
+
+
+                <h2>
+                    Pokémon went global
+                </h2>
+
+
+                <p>
+
+                    Early core-series games reached
+                    international markets months or even
+                    years after their Japanese release.
+                    Later generations moved towards
+                    simultaneous worldwide launches.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CHART 6 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                Game Releases
+            </div>
+
+
+            <h3>
+                Regional release gaps almost disappeared after Generation V
+            </h3>
+
 
             <p>
-                The Pokémon universe expanded geographically as well as numerically.
-                Early core-series games reached international markets months or even
-                years after their Japanese release, but later generations moved
-                towards simultaneous worldwide launches.
+
+                Select a generation to see how long major
+                overseas markets waited after the Japanese
+                release. Larger and darker circles indicate
+                longer release delays.
+
             </p>
 
-            <h3>Regional release gaps almost disappeared after Generation V</h3>
 
-            <p>
-                Select a generation to see how long major overseas markets waited
-                after the Japanese release. Larger and darker circles indicate a
-                longer release delay.
-            </p>
+            <div class="chart-frame">
 
-            <div id="release_map"></div>
+                <div id="release_map"></div>
+
+            </div>
+
 
             <p class="chart-note">
-                <strong>Note:</strong> Map points represent approximate geographic
-                centres of release markets rather than exact launch locations.
-                Generation I compares the original Japanese Red/Green release with
-                the international Red/Blue release.
+
+                <strong>Note:</strong>
+                Map points represent approximate geographic
+                centres of release markets rather than exact
+                launch locations. Generation I compares the
+                original Japanese Red/Green release with the
+                international Red/Blue release.
+
             </p>
 
-        </section>
+        </article>
 
-    </main>
 
-    <script src="js/vega_lite_vis.js?v=3"></script>
+    </section>
+
+
+
+    <!-- =====================================
+        FOOTER
+    ====================================== -->
+
+    <footer class="page-footer">
+
+        <p>
+
+            <strong>Data:</strong>
+            PokéAPI species and statistics,
+            core-series game release records,
+            and Vega world map boundaries.
+
+        </p>
+
+
+        <p>
+
+            FIT3179 Data Visualisation 2 ·
+            October 2026 ·
+            Built with Vega-Lite
+
+        </p>
+
+    </footer>
+
+
+</main>
+
+
+<script src="js/vega_lite_vis.js?v=3"></script>
+
 
 </body>
+
 </html>
