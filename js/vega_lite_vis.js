@@ -3,11 +3,9 @@ var vg_2 = "js/chart02_cumulative_growth.vg.json?v=3";
 var vg_3 = "js/chart03_waffle.vg.json?v=3";
 var vg_4 = "js/chart04_type_heatmap.vg.json?v=3";
 var vg_5 = "js/chart05_stats_boxplot.vg.json?v=3";
-var vg_6 = "js/chart06_release_map.vg.json?v=3";
 var vg_7 = "js/chart07_release_delay_line.vg.json?v=3";
 var vg_8 = "js/chart08_stat_connected_dot.vg.json?v=3";
 var vg_9 = "js/chart09_type_bump.vg.json?v=3";
-var vg_10 = "js/chart10_region_choropleth.vg.json?v=3";
 var vg_11 = "js/chart11_pokelids_dot_map.vg.json?v=1";
 var vg_12 = "js/chart12_pokelids_prefecture_symbols.vg.json?v=1";
 var vg_13 = "js/chart13_pokelids_gen1_choropleth.vg.json?v=1";
@@ -38,11 +36,6 @@ vegaEmbed("#stats_boxplot", vg_5, {
 }).catch(console.error);
 
 
-vegaEmbed("#release_map", vg_6, {
-    actions: false
-}).catch(console.error);
-
-
 vegaEmbed("#release_delay_line", vg_7, {
     actions: false
 }).catch(console.error);
@@ -54,11 +47,6 @@ vegaEmbed("#stat_connected_dot", vg_8, {
 
 
 vegaEmbed("#type_bump", vg_9, {
-    actions: false
-}).catch(console.error);
-
-
-vegaEmbed("#region_choropleth", vg_10, {
     actions: false
 }).catch(console.error);
 
