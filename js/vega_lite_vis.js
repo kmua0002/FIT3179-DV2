@@ -8,6 +8,8 @@ var vg_7 = "js/chart07_release_delay_line.vg.json?v=3";
 var vg_8 = "js/chart08_stat_connected_dot.vg.json?v=3";
 var vg_9 = "js/chart09_type_bump.vg.json?v=3";
 var vg_10 = "js/chart10_region_choropleth.vg.json?v=3";
+var vg_11 = "js/chart11_pokelids_dot_map.vg.json?v=1";
+var vg_12 = "js/chart12_pokelids_prefecture_symbols.vg.json?v=1";
 
 
 vegaEmbed("#generation_bar", vg_1, {
@@ -57,4 +59,18 @@ vegaEmbed("#type_bump", vg_9, {
 
 vegaEmbed("#region_choropleth", vg_10, {
     actions: false
+}).catch(console.error);
+
+
+vegaEmbed("#pokelids_dot_map", vg_11, {
+    actions: false
+}).then(function() {
+    console.log("Poké Lid map loaded.");
+}).catch(console.error);
+
+
+vegaEmbed("#pokelids_prefecture_symbols", vg_12, {
+    actions: false
+}).then(function() {
+    console.log("Poké Lid prefecture symbol map loaded.");
 }).catch(console.error);

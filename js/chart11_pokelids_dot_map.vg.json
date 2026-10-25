@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 560,
+    "projection": {
+        "type": "mercator"
+    },
+    "layer": [
+        {
+        "data": {
+            "url": "data/geo/japan_prefectures.topojson",
+            "format": {
+            "type": "topojson",
+            "feature": "ne_10m_admin_1_states_provinces"
+            }
+        },
+        "mark": {
+            "type": "geoshape",
+            "fill": "#EAF0FF",
+            "stroke": "#B6C3D9",
+            "strokeWidth": 0.7
+        },
+        "encoding": {
+            "tooltip": [
+            {
+                "field": "name_en",
+                "type": "nominal",
+                "title": "Prefecture"
+            }
+            ]
+        }
+        },
+        {
+        "data": {
+            "url": "data/pokelids_locations.csv"
+        },
+        "mark": {
+            "type": "circle",
+            "color": "#3B4CCA",
+            "size": 46,
+            "opacity": 0.8,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.65
+        },
+        "encoding": {
+            "longitude": {
+            "field": "longitude",
+            "type": "quantitative"
+            },
+            "latitude": {
+            "field": "latitude",
+            "type": "quantitative"
+            },
+            "tooltip": [
+            {
+                "field": "location",
+                "type": "nominal",
+                "title": "Location"
+            },
+            {
+                "field": "prefecture",
+                "type": "nominal",
+                "title": "Prefecture"
+            },
+            {
+                "field": "pokemon_names",
+                "type": "nominal",
+                "title": "Featured Pokémon"
+            },
+            {
+                "field": "pokemon_count",
+                "type": "quantitative",
+                "title": "Pokémon on lid",
+                "format": ".0f"
+            },
+            {
+                "field": "manhole_no",
+                "type": "quantitative",
+                "title": "Catalogue ID",
+                "format": ".0f"
+            }
+            ]
+        }
+        }
+    ],
+    "config": {
+        "view": {
+        "stroke": null
+        }
+    }
+}

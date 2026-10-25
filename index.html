@@ -745,49 +745,6 @@
 
 
 
-        <!-- CHART 10 -->
-
-        <article class="chart-card">
-
-            <div class="chart-kicker">
-                Real-World Inspiration
-            </div>
-
-
-            <h3>
-                Pokémon's regional inspirations moved beyond Japan after Generation IV
-            </h3>
-
-
-            <p>
-                The first four core Pokémon regions drew heavily from areas of Japan.
-                From Generation V onward, inspirations expanded to the United States
-                and Western Europe.
-            </p>
-
-
-            <div class="chart-frame">
-
-                <div id="region_choropleth"></div>
-
-            </div>
-
-
-            <p class="chart-note">
-
-                <strong>How to read:</strong>
-                Darker countries inspired more of the nine core regions shown.
-                The map represents broad real-world inspirations rather than literal
-                locations of the fictional Pokémon regions. Paldea is represented
-                by both Spain and Portugal because its inspiration spans the Iberian
-                Peninsula.
-
-            </p>
-
-        </article>
-
-
-
         <!-- CHART 7 -->
 
         <article class="chart-card">
@@ -832,6 +789,119 @@
 
 
 
+    <!-- SECTION 04 -->
+
+    <section class="story-section">
+
+        <div class="section-head">
+
+            <div class="section-number">
+                04
+            </div>
+
+            <div>
+
+                <div class="section-kicker">
+                    Pokémon in the Real World
+                </div>
+
+                <h2>
+                    Pokémon stepped into the real world
+                </h2>
+
+                <p>
+                    Beyond video games, Pokémon has become part of
+                    Japan's public spaces through Poké Lids,
+                    specially designed utility-hole covers featuring
+                    Pokémon. This dataset records 470 installations
+                    across 41 Japanese prefectures.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHART 11 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                Poké Lid Locations
+            </div>
+
+            <h3>
+                470 Poké Lids reveal an uneven footprint across Japan
+            </h3>
+
+            <p>
+                Each blue dot represents a recorded Poké Lid.
+                The installations extend across Japan, but some
+                areas have considerably more than others.
+                Hover over a point to discover its location
+                and featured Pokémon.
+            </p>
+
+            <div class="chart-frame">
+
+                <div id="pokelids_dot_map"></div>
+
+            </div>
+
+            <p class="chart-note">
+                <strong>How to read:</strong>
+                Each point represents one Poké Lid.
+                Multiple nearby locations may appear clustered.
+                The map reflects the 470 records in the
+                dataset snapshot, rather than necessarily every
+                Poké Lid currently installed in Japan.
+            </p>
+
+        </article>
+
+
+        <!-- CHART 12 -->
+
+        <article class="chart-card">
+
+            <div class="chart-kicker">
+                Prefecture Comparison
+            </div>
+
+            <h3>
+                Four prefectures account for over a third
+                of the recorded Poké Lids
+            </h3>
+
+            <p>
+                The 470 Poké Lids are not evenly distributed across Japan.
+                Hokkaido leads with 50 recorded installations, followed
+                by Fukushima (43), Miyagi (37) and Iwate (36).
+                Together, these four prefectures account for 35.3%
+                of the dataset.
+            </p>
+
+            <div class="chart-frame">
+
+                <div id="pokelids_prefecture_symbols"></div>
+
+            </div>
+
+            <p class="chart-note">
+                <strong>How to read:</strong>
+                Each circle represents one prefecture, with its area
+                proportional to the number of recorded Poké Lids.
+                Circles are positioned at a representative recorded
+                Poké Lid location within each prefecture.
+                Prefectures without records in this dataset
+                are not shown with a circle.
+            </p>
+
+        </article>
+
+    </section>
+
+
     <!-- =====================================
         FOOTER
     ====================================== -->
@@ -843,7 +913,9 @@
             <strong>Data:</strong>
             PokéAPI species and statistics,
             core-series game release records,
-            and Vega world map boundaries.
+            Pokémon Local Acts Poké Lid catalogue
+            (community-maintained dataset snapshot),
+            and Natural Earth geographic boundaries.
 
         </p>
 
@@ -862,7 +934,7 @@
 </main>
 
 
-<script src="js/vega_lite_vis.js?v=3"></script>
+<script src="js/vega_lite_vis.js?v=4"></script>
 
 
 </body>
