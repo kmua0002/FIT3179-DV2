@@ -11,6 +11,7 @@ var vg_12 = "js/chart12_pokelids_prefecture_symbols.vg.json?v=1";
 var vg_13 = "js/chart13_pokelids_gen1_choropleth.vg.json?v=1";
 var vg_game_timeline = "js/chart_core_game_timeline.vg.json?v=1";
 var vg_game_remakes = "js/chart_core_remake_arc_timeline.vg.json?v=1";
+var vg_evolution_flow = "js/chart_evolution_generation_flow.vg.json?v=1";
 
 
 vegaEmbed("#generation_bar", vg_1, {
@@ -86,4 +87,11 @@ vegaEmbed("#game_remake_timeline", vg_game_remakes, {
     actions: false
 }).then(function() {
     console.log("Pokémon remake arc timeline loaded.");
+}).catch(console.error);
+
+
+vegaEmbed("#evolution_flow", vg_evolution_flow, {
+    actions: false
+}).then(function() {
+    console.log("Evolution flow diagram loaded.");
 }).catch(console.error);

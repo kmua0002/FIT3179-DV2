@@ -1,0 +1,15 @@
+
+# PokéAPI downloaded cache
+.cache/
+
+# Python generated cache
+__pycache__/
+*.pyc
+
+# Local Python virtual environments
+.venv/
+venv/
+
+# Windows temporary files
+Thumbs.db
+desktop.ini

@@ -1,0 +1,194 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "Flow of new Pokemon species joining older evolution families.",
+    "width": 740,
+    "height": 555,
+    "padding": {
+        "top": 4,
+        "bottom": 3,
+        "left": 2,
+        "right": 3
+    },
+    "autosize": "pad",
+    "background": "transparent",
+
+    "data": [
+        {
+        "name": "links",
+        "url": "data/evolution_flow_links.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+            "source_generation": "number",
+            "target_generation": "number",
+            "species_count": "number"
+            }
+        }
+        },
+        {
+        "name": "nodes",
+        "url": "data/evolution_flow_nodes.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+            "generation": "number",
+            "total": "number",
+            "x0": "number",
+            "x1": "number",
+            "y0": "number",
+            "y1": "number",
+            "ymid": "number"
+            }
+        }
+        }
+    ],
+
+    "signals": [
+        {
+        "name": "focusGeneration",
+        "value": "All",
+        "bind": {
+            "input": "select",
+            "name": "Highlight additions in: ",
+            "options": [
+            "All",
+            "Gen II",
+            "Gen III",
+            "Gen IV",
+            "Gen VI",
+            "Gen VIII",
+            "Gen IX"
+            ]
+        }
+        }
+    ],
+
+    "marks": [
+        {
+        "type": "text",
+        "encode": {
+            "enter": {
+            "x": {"value": 168},
+            "y": {"value": 19},
+            "text": {
+                "value": "GENERATION WHERE THE FAMILY BEGAN"
+            },
+            "align": {"value": "center"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fontWeight": {"value": 700},
+            "fill": {"value": "#475476"}
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "encode": {
+            "enter": {
+            "x": {"value": 582},
+            "y": {"value": 19},
+            "text": {
+                "value": "GENERATION THAT ADDED NEW MEMBERS"
+            },
+            "align": {"value": "center"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fontWeight": {"value": 700},
+            "fill": {"value": "#475476"}
+            }
+        }
+        },
+
+        {
+        "type": "path",
+        "from": {"data": "links"},
+        "encode": {
+            "update": {
+            "path": {"field": "path"},
+            "fill": {
+                "signal": "datum.target_generation === 4 ? '#FFC900' : '#7084D9'"
+            },
+            "fillOpacity": {
+                "signal": "focusGeneration === 'All' || focusGeneration === datum.target_label ? 0.72 : 0.06"
+            },
+            "stroke": {"value": "#FFFFFF"},
+            "strokeWidth": {"value": 0.5},
+            "tooltip": {
+                "signal": "datum.source_label + ' families → ' + datum.target_label + ': ' + datum.species_count + ' Pokémon joined older families'"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "rect",
+        "from": {"data": "nodes"},
+        "encode": {
+            "enter": {
+            "x": {"field": "x0"},
+            "x2": {"field": "x1"},
+            "y": {"field": "y0"},
+            "y2": {"field": "y1"},
+            "cornerRadius": {"value": 3}
+            },
+            "update": {
+            "fill": {
+                "signal": "datum.side === 'source' ? '#3B4CCA' : (datum.generation === 4 ? '#FFC900' : '#5972D8')"
+            },
+            "fillOpacity": {
+                "signal": "datum.side === 'source' || focusGeneration === 'All' || focusGeneration === datum.generation_label ? 1 : 0.24"
+            },
+            "tooltip": {
+                "signal": "datum.generation_label + ': ' + datum.total + (datum.side === 'source' ? ' later additions to families that began here' : ' new Pokémon joining older families')"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "nodes"},
+        "encode": {
+            "enter": {
+            "x": {
+                "signal": "datum.side === 'source' ? datum.x0 - 10 : datum.x1 + 10"
+            },
+            "y": {"field": "ymid"},
+            "align": {
+                "signal": "datum.side === 'source' ? 'right' : 'left'"
+            },
+            "baseline": {"value": "middle"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 12},
+            "fontWeight": {"value": 600},
+            "fill": {"value": "#354466"},
+            "text": {"field": "display_label"}
+            },
+            "update": {
+            "opacity": {
+                "signal": "datum.side === 'source' || focusGeneration === 'All' || focusGeneration === datum.generation_label ? 1 : 0.3"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "encode": {
+            "enter": {
+            "x": {"value": 369},
+            "y": {"value": 548},
+            "text": {
+                "value": "Ribbon width = number of species joining a family from an earlier generation"
+            },
+            "align": {"value": "center"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fill": {"value": "#5D6A87"}
+            }
+        }
+        }
+    ]
+}

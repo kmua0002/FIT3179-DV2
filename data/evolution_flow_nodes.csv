@@ -1,0 +1,12 @@
+﻿side,generation,generation_label,total,display_label,x0,x1,y0,y1,ymid
+source,1,Gen I,37,Gen I · 37,155,170,82.5,257.077,169.789
+source,2,Gen II,20,Gen II · 20,155,170,282.077,376.444,329.261
+source,3,Gen III,8,Gen III · 8,155,170,401.444,439.19,420.317
+source,5,Gen V,3,Gen V · 3,155,170,464.19,478.345,471.268
+source,8,Gen VIII,3,Gen VIII · 3,155,170,503.345,517.5,510.423
+target,2,Gen II,19,Gen II · 19,575,590,70.0,159.648,114.824
+target,3,Gen III,2,Gen III · 2,575,590,184.648,194.085,189.366
+target,4,Gen IV,29,Gen IV · 29,575,590,219.085,355.915,287.5
+target,6,Gen VI,1,Gen VI · 1,575,590,380.915,385.634,383.275
+target,8,Gen VIII,12,Gen VIII · 12,575,590,410.634,467.254,438.944
+target,9,Gen IX,8,Gen IX · 8,575,590,492.254,530.0,511.127

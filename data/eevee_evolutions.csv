@@ -1,0 +1,9 @@
+﻿chain_id,from_id,from_name,from_generation,to_id,to_name,to_generation,relationship,new_member_generation,evolution_triggers
+67,133,Eevee,1,134,Vaporeon,1,same_generation,1,use-item
+67,133,Eevee,1,135,Jolteon,1,same_generation,1,use-item
+67,133,Eevee,1,136,Flareon,1,same_generation,1,use-item
+67,133,Eevee,1,196,Espeon,2,later_evolution,2,level-up
+67,133,Eevee,1,197,Umbreon,2,later_evolution,2,level-up
+67,133,Eevee,1,470,Leafeon,4,later_evolution,4,level-up; use-item
+67,133,Eevee,1,471,Glaceon,4,later_evolution,4,level-up; use-item
+67,133,Eevee,1,700,Sylveon,6,later_evolution,6,level-up
