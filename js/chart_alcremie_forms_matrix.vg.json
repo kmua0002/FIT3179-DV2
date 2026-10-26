@@ -1,0 +1,256 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "description": "All 63 non-shiny, non-Gigantamax Alcremie appearances, with Generation VIII evolution rules.",
+
+
+    "width": 650,
+    "height": 360,
+
+    "autosize": {
+    "type": "pad",
+    "contains": "padding"
+    },
+
+
+    "data": {
+        "url": "data/alcremie_forms.csv"
+    },
+
+    "params": [
+        {
+        "name": "alcremieTime",
+        "value": "All",
+        "bind": {
+            "input": "select",
+            "name": "Time of day: ",
+            "options": [
+            "All",
+            "Day",
+            "Night",
+            "Evening"
+            ]
+        }
+        },
+        {
+        "name": "alcremieDirection",
+        "value": "All",
+        "bind": {
+            "input": "select",
+            "name": "Spin direction: ",
+            "options": [
+            "All",
+            "Clockwise",
+            "Counterclockwise"
+            ]
+        }
+        },
+        {
+        "name": "alcremieSweet",
+        "value": "All",
+        "bind": {
+            "input": "select",
+            "name": "Held Sweet: ",
+            "options": [
+            "All",
+            "Strawberry",
+            "Berry",
+            "Love",
+            "Star",
+            "Clover",
+            "Flower",
+            "Ribbon"
+            ]
+        }
+        }
+    ],
+
+    "transform": [
+        {
+        "calculate": "(alcremieTime === 'All' || datum.time_of_day === alcremieTime) && (alcremieDirection === 'All' || datum.spin_direction === alcremieDirection || datum.spin_direction === 'Either') && (alcremieSweet === 'All' || datum.sweet === alcremieSweet)",
+        "as": "highlighted"
+        }
+    ],
+
+    "encoding": {
+        "x": {
+        "field": "sweet",
+        "type": "nominal",
+        "sort": [
+            "Strawberry",
+            "Berry",
+            "Love",
+            "Star",
+            "Clover",
+            "Flower",
+            "Ribbon"
+        ],
+        "scale": {
+            "paddingInner": 0.09,
+            "paddingOuter": 0.04
+        },
+        "axis": {
+            "orient": "top",
+            "title": "Sweet held by Milcery (decoration)",
+            "labelAngle": 0,
+            "labelFontSize": 12,
+            "labelLimit": 110,
+            "labelPadding": 12,
+            "titlePadding": 18,
+            "domain": false,
+            "ticks": false
+        }
+        },
+
+        "y": {
+        "field": "cream",
+        "type": "nominal",
+        "sort": [
+            "Vanilla Cream",
+            "Ruby Cream",
+            "Matcha Cream",
+            "Mint Cream",
+            "Lemon Cream",
+            "Salted Cream",
+            "Ruby Swirl",
+            "Caramel Swirl",
+            "Rainbow Swirl"
+        ],
+        "scale": {
+            "paddingInner": 0.12,
+            "paddingOuter": 0.06
+        },
+        "axis": {
+            "title": "Cream (determined by spinning)",
+            "labelFontSize": 11,
+            "labelPadding": 10,
+            "labelLimit": 145,
+            "titlePadding": 12,
+            "domain": false,
+            "ticks": false
+        }
+        },
+
+        "tooltip": [
+        {
+            "field": "form_name",
+            "type": "nominal",
+            "title": "Appearance"
+        },
+        {
+            "field": "time_of_day",
+            "type": "nominal",
+            "title": "Time"
+        },
+        {
+            "field": "spin_direction",
+            "type": "nominal",
+            "title": "Spin direction"
+        },
+        {
+            "field": "spin_duration",
+            "type": "nominal",
+            "title": "Spin length"
+        }
+        ]
+    },
+
+    "layer": [
+        {
+        "mark": {
+            "type": "rect",
+            "cornerRadius": 6,
+            "strokeWidth": 1.5
+        },
+
+        "encoding": {
+            "color": {
+            "field": "cream_colour",
+            "type": "nominal",
+            "scale": null,
+            "legend": null
+            },
+
+            "stroke": {
+            "condition": {
+                "test": "datum.highlighted",
+                "value": "#3B4CCA"
+            },
+            "value": "#E8EBF6"
+            },
+
+            "opacity": {
+            "condition": {
+                "test": "datum.highlighted",
+                "value": 1
+            },
+            "value": 0.14
+            }
+        }
+        },
+
+        {
+        "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 145
+        },
+
+        "encoding": {
+            "shape": {
+            "field": "sweet",
+            "type": "nominal",
+            "legend": null,
+
+            "scale": {
+                "domain": [
+                "Strawberry",
+                "Berry",
+                "Love",
+                "Star",
+                "Clover",
+                "Flower",
+                "Ribbon"
+                ],
+                "range": [
+                "circle",
+                "diamond",
+                "triangle-up",
+                "triangle-right",
+                "cross",
+                "triangle-down",
+                "square"
+                ]
+            }
+            },
+
+            "color": {
+            "value": "#536285"
+            },
+
+            "opacity": {
+            "condition": {
+                "test": "datum.highlighted",
+                "value": 0.9
+            },
+            "value": 0.08
+            }
+        }
+        }
+    ],
+
+    "config": {
+        "font": "Inter",
+
+        "view": {
+        "stroke": null
+        },
+
+        "axis": {
+        "labelColor": "#53617D",
+        "titleColor": "#344063",
+        "grid": false
+        }
+    }
+}

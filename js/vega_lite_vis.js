@@ -13,6 +13,7 @@ var vg_game_timeline = "js/chart_core_game_timeline.vg.json?v=1";
 var vg_game_remakes = "js/chart_core_remake_arc_timeline.vg.json?v=1";
 var vg_evolution_flow = "js/chart_evolution_generation_flow.vg.json?v=1";
 var vg_eevee = "js/chart_eevee_evolution_network.vg.json?v=1";
+var vg_alcremie = "js/chart_alcremie_forms_matrix.vg.json?v=1";
 
 
 vegaEmbed("#generation_bar", vg_1, {
@@ -102,4 +103,11 @@ vegaEmbed("#eevee_evolution_network", vg_eevee, {
     actions: false
 }).then(function() {
     console.log("Eevee evolution network loaded.");
+}).catch(console.error);
+
+
+vegaEmbed("#alcremie_forms_matrix", vg_alcremie, {
+    actions: false
+}).then(function() {
+    console.log("Alcremie forms matrix loaded.");
 }).catch(console.error);
