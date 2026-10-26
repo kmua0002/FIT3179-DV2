@@ -897,3 +897,85 @@ body {
             32px 25px;
     }
 }
+
+
+
+/* =====================================
+   HISTORICAL TYPE MILESTONES
+===================================== */
+
+.type-history-card {
+    margin-bottom: 26px;
+}
+
+.type-history-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.type-history-step {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    min-width: 0;
+    padding: 20px;
+
+    background: #F3F5FD;
+    border: 1px solid #DEE4F5;
+    border-radius: 14px;
+}
+
+.type-history-year {
+    color: #3B4CCA;
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.type-history-number {
+    color: #17213B;
+    font-family: "Fredoka", sans-serif;
+    font-size: 31px;
+    line-height: 1.1;
+}
+
+.type-history-detail {
+    color: #536382;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.type-history-explanation {
+    max-width: 780px;
+    margin-top: 18px;
+
+    color: #4F607F;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.type-history-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #667590;
+}
+
+.type-history-source a {
+    color: #3B4CCA;
+    text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+    .type-history-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .type-history-number {
+        font-size: 27px;
+    }
+}
