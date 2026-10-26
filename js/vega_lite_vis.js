@@ -16,6 +16,8 @@ var vg_eevee = "js/chart_eevee_evolution_network.vg.json?v=1";
 var vg_alcremie = "js/chart_alcremie_forms_matrix.vg.json?v=1";
 var vg_abilities = "js/chart_abilities_treemap.vg.json?v=2";
 var vg_tcg_calendar = "js/chart_tcg_release_calendar.vg.json?v=1";
+var vg_tcg_links = "js/chart_tcg_jp_en_links.vg.json?v=2";
+
 
 
 vegaEmbed("#generation_bar", vg_1, {
@@ -126,4 +128,11 @@ vegaEmbed("#tcg_release_calendar", vg_tcg_calendar, {
     actions: false
 }).then(function() {
     console.log("TCG release calendar loaded.");
+}).catch(console.error);
+
+
+vegaEmbed("#tcg_jp_en_links", vg_tcg_links, {
+    actions: false
+}).then(function() {
+    console.log("TCG source expansion links loaded.");
 }).catch(console.error);

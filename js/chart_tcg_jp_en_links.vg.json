@@ -1,0 +1,374 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Selected Japanese source expansions connected to English-language TCG releases in 2023–2024.",
+    "width": 740,
+    "height": 510,
+    "padding": 12,
+
+        
+    "data": {
+    "values": [
+        {"en_year":"2023","jp_order":0,"en_mid_order":0.5,"jp_set":"Scarlet ex","jp_date":"2023-01-20","en_set":"Scarlet & Violet","en_date":"2023-03-31","delay_days":70},
+        {"en_year":"2023","jp_order":1,"en_mid_order":0.5,"jp_set":"Violet ex","jp_date":"2023-01-20","en_set":"Scarlet & Violet","en_date":"2023-03-31","delay_days":70},
+        {"en_year":"2023","jp_order":2,"en_mid_order":3,"jp_set":"Triplet Beat","jp_date":"2023-03-10","en_set":"Paldea Evolved","en_date":"2023-06-09","delay_days":91},
+        {"en_year":"2023","jp_order":3,"en_mid_order":3,"jp_set":"Snow Hazard","jp_date":"2023-04-14","en_set":"Paldea Evolved","en_date":"2023-06-09","delay_days":56},
+        {"en_year":"2023","jp_order":4,"en_mid_order":3,"jp_set":"Clay Burst","jp_date":"2023-04-14","en_set":"Paldea Evolved","en_date":"2023-06-09","delay_days":56},
+        {"en_year":"2023","jp_order":5,"en_mid_order":5,"jp_set":"Ruler of the Black Flame","jp_date":"2023-07-28","en_set":"Obsidian Flames","en_date":"2023-08-11","delay_days":14},
+        {"en_year":"2023","jp_order":6,"en_mid_order":6,"jp_set":"Pokémon Card 151","jp_date":"2023-06-16","en_set":"151","en_date":"2023-09-22","delay_days":98},
+        {"en_year":"2023","jp_order":7,"en_mid_order":8,"jp_set":"Raging Surf","jp_date":"2023-09-22","en_set":"Paradox Rift","en_date":"2023-11-03","delay_days":42},
+        {"en_year":"2023","jp_order":8,"en_mid_order":8,"jp_set":"Ancient Roar","jp_date":"2023-10-27","en_set":"Paradox Rift","en_date":"2023-11-03","delay_days":7},
+        {"en_year":"2023","jp_order":9,"en_mid_order":8,"jp_set":"Future Flash","jp_date":"2023-10-27","en_set":"Paradox Rift","en_date":"2023-11-03","delay_days":7},
+        {"en_year":"2024","jp_order":0,"en_mid_order":0,"jp_set":"Shiny Treasure ex","jp_date":"2023-12-01","en_set":"Paldean Fates","en_date":"2024-01-26","delay_days":56},
+        {"en_year":"2024","jp_order":1,"en_mid_order":1.5,"jp_set":"Wild Force","jp_date":"2024-01-26","en_set":"Temporal Forces","en_date":"2024-03-22","delay_days":56},
+        {"en_year":"2024","jp_order":2,"en_mid_order":1.5,"jp_set":"Cyber Judge","jp_date":"2024-01-26","en_set":"Temporal Forces","en_date":"2024-03-22","delay_days":56},
+        {"en_year":"2024","jp_order":3,"en_mid_order":3.5,"jp_set":"Crimson Haze","jp_date":"2024-03-22","en_set":"Twilight Masquerade","en_date":"2024-05-24","delay_days":63},
+        {"en_year":"2024","jp_order":4,"en_mid_order":3.5,"jp_set":"Transformation Mask","jp_date":"2024-04-26","en_set":"Twilight Masquerade","en_date":"2024-05-24","delay_days":28},
+        {"en_year":"2024","jp_order":5,"en_mid_order":5,"jp_set":"Night Wanderer","jp_date":"2024-06-07","en_set":"Shrouded Fable","en_date":"2024-08-02","delay_days":56},
+        {"en_year":"2024","jp_order":6,"en_mid_order":6,"jp_set":"Stellar Miracle","jp_date":"2024-07-19","en_set":"Stellar Crown","en_date":"2024-09-13","delay_days":56},
+        {"en_year":"2024","jp_order":7,"en_mid_order":7.5,"jp_set":"Paradise Dragona","jp_date":"2024-09-13","en_set":"Surging Sparks","en_date":"2024-11-08","delay_days":56},
+        {"en_year":"2024","jp_order":8,"en_mid_order":7.5,"jp_set":"Super Electric Breaker","jp_date":"2024-10-18","en_set":"Surging Sparks","en_date":"2024-11-08","delay_days":21}
+    ]
+    },
+
+
+    
+    "params": [
+    {
+        "name": "selectedYear",
+        "value": "2023",
+        "bind": {
+        "input": "select",
+        "name": "English release year: ",
+        "options": ["2023", "2024"]
+        }
+    }
+    ],
+
+    "transform": [
+        {
+        "filter": "datum.en_year === selectedYear"
+        },
+        {
+        "calculate": "datum.delay_days <= 30 ? '0–30 days' : datum.delay_days <= 60 ? '31–60 days' : 'Over 60 days'",
+        "as": "delay_group"
+        }
+    ],
+
+    "layer": [
+        {
+        "mark": {
+            "type": "rule",
+            "strokeWidth": 2.5,
+            "opacity": 0.78
+        },
+        "encoding": {
+            "x": {
+            "datum": 250,
+            "type": "quantitative",
+            "scale": {"domain": [0, 740]},
+            "axis": null
+            },
+            "x2": {"datum": 480},
+            "y": {
+            "field": "jp_order",
+            "type": "quantitative",
+            "scale": {"domain": [10, -1]},
+            "axis": null
+            },
+            "y2": {"field": "en_mid_order"},
+            "color": {
+            "field": "delay_group",
+            "type": "nominal",
+            "title": "Gap between launches",
+            "scale": {
+                "domain": [
+                "0–30 days",
+                "31–60 days",
+                "Over 60 days"
+                ],
+                "range": [
+                "#E4AA26",
+                "#8A9ADB",
+                "#3B4CCA"
+                ]
+            },
+            "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "labelFontSize": 11,
+                "titleFontSize": 11
+            }
+            },
+            "tooltip": [
+            {
+                "field": "jp_set",
+                "type": "nominal",
+                "title": "Japanese expansion"
+            },
+            {
+                "field": "jp_date",
+                "type": "nominal",
+                "title": "Japan release"
+            },
+            {
+                "field": "en_set",
+                "type": "nominal",
+                "title": "English expansion"
+            },
+            {
+                "field": "en_date",
+                "type": "nominal",
+                "title": "English release"
+            },
+            {
+                "field": "delay_days",
+                "type": "quantitative",
+                "title": "Days apart",
+                "format": ".0f"
+            }
+            ]
+        }
+        },
+
+        {
+        "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 130,
+            "color": "#3B4CCA",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 1.5
+        },
+        "encoding": {
+            "x": {
+            "datum": 250,
+            "type": "quantitative",
+            "scale": {"domain": [0, 740]},
+            "axis": null
+            },
+            "y": {
+            "field": "jp_order",
+            "type": "quantitative",
+            "scale": {"domain": [10, -1]},
+            "axis": null
+            },
+            "tooltip": [
+            {
+                "field": "jp_set",
+                "type": "nominal",
+                "title": "Japanese set"
+            },
+            {
+                "field": "jp_date",
+                "type": "nominal",
+                "title": "Release date"
+            }
+            ]
+        }
+        },
+
+        {
+        "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dy": -9,
+            "font": "Inter",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "#344063"
+        },
+        "encoding": {
+            "x": {
+            "datum": 237,
+            "type": "quantitative",
+            "scale": {"domain": [0, 740]},
+            "axis": null
+            },
+            "y": {
+            "field": "jp_order",
+            "type": "quantitative",
+            "scale": {"domain": [10, -1]},
+            "axis": null
+            },
+            "text": {"field": "jp_set"}
+        }
+        },
+
+        {
+        "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dy": 10,
+            "font": "Inter",
+            "fontSize": 10,
+            "color": "#697896"
+        },
+        "encoding": {
+            "x": {
+            "datum": 237,
+            "type": "quantitative",
+            "scale": {"domain": [0, 740]},
+            "axis": null
+            },
+            "y": {
+            "field": "jp_order",
+            "type": "quantitative",
+            "scale": {"domain": [10, -1]},
+            "axis": null
+            },
+            "text": {"field": "jp_date"}
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "aggregate": [
+                {"op": "count", "as": "source_count"}
+            ],
+            "groupby": [
+                "en_set",
+                "en_date",
+                "en_mid_order"
+            ]
+            }
+        ],
+        "mark": {
+            "type": "point",
+            "shape": "diamond",
+            "filled": true,
+            "size": 165,
+            "color": "#FFCB05",
+            "stroke": "#8B6A00",
+            "strokeWidth": 1
+        },
+        "encoding": {
+            "x": {
+            "datum": 480,
+            "type": "quantitative",
+            "scale": {"domain": [0, 740]},
+            "axis": null
+            },
+            "y": {
+            "field": "en_mid_order",
+            "type": "quantitative",
+            "scale": {"domain": [10, -1]},
+            "axis": null
+            },
+            "tooltip": [
+            {
+                "field": "en_set",
+                "type": "nominal",
+                "title": "English expansion"
+            },
+            {
+                "field": "en_date",
+                "type": "nominal",
+                "title": "Release date"
+            },
+            {
+                "field": "source_count",
+                "type": "quantitative",
+                "title": "Featured Japanese sets",
+                "format": ".0f"
+            }
+            ]
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "aggregate": [
+                {"op": "count", "as": "source_count"}
+            ],
+            "groupby": [
+                "en_set",
+                "en_date",
+                "en_mid_order"
+            ]
+            }
+        ],
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dy": -9,
+            "font": "Inter",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "#344063"
+        },
+        "encoding": {
+            "x": {
+            "datum": 494,
+            "type": "quantitative",
+            "scale": {"domain": [0, 740]},
+            "axis": null
+            },
+            "y": {
+            "field": "en_mid_order",
+            "type": "quantitative",
+            "scale": {"domain": [10, -1]},
+            "axis": null
+            },
+            "text": {"field": "en_set"}
+        }
+        },
+
+        {
+        "transform": [
+            {
+            "aggregate": [
+                {"op": "count", "as": "source_count"}
+            ],
+            "groupby": [
+                "en_set",
+                "en_date",
+                "en_mid_order"
+            ]
+            },
+            {
+            "calculate": "datum.en_date + ' · ' + datum.source_count + (datum.source_count == 1 ? ' source set' : ' source sets')",
+            "as": "release_detail"
+            }
+        ],
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dy": 10,
+            "font": "Inter",
+            "fontSize": 10,
+            "color": "#697896"
+        },
+        "encoding": {
+            "x": {
+            "datum": 494,
+            "type": "quantitative",
+            "scale": {"domain": [0, 740]},
+            "axis": null
+            },
+            "y": {
+            "field": "en_mid_order",
+            "type": "quantitative",
+            "scale": {"domain": [10, -1]},
+            "axis": null
+            },
+            "text": {"field": "release_detail"}
+        }
+        }
+    ],
+
+    "config": {
+        "font": "Inter",
+        "view": {"stroke": null},
+        "legend": {
+        "labelColor": "#52617F",
+        "titleColor": "#344063"
+        }
+    }
+}
