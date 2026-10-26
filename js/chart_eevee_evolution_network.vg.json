@@ -1,0 +1,317 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "Eevee evolutionary branches by debut generation and original evolution method.",
+    "width": 760,
+    "height": 590,
+    "padding": 5,
+    "autosize": "pad",
+    "background": "transparent",
+
+    "data": [
+        {
+        "name": "branches",
+        "url": "data/eevee_evolutions.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+            "from_id": "number",
+            "to_id": "number",
+            "to_generation": "number"
+            }
+        },
+        "transform": [
+            {
+            "type": "formula",
+            "as": "card_x",
+            "expr": "indexof([134,136,197,471],datum.to_id)>=0 ? 12 : 501"
+            },
+            {
+            "type": "formula",
+            "as": "card_y",
+            "expr": "indexof([134,135],datum.to_id)>=0 ? 49 : indexof([136,196],datum.to_id)>=0 ? 167 : indexof([197,470],datum.to_id)>=0 ? 320 : 438"
+            },
+            {
+            "type": "formula",
+            "as": "type_label",
+            "expr": "datum.to_id==134?'Water':datum.to_id==135?'Electric':datum.to_id==136?'Fire':datum.to_id==196?'Psychic':datum.to_id==197?'Dark':datum.to_id==470?'Grass':datum.to_id==471?'Ice':'Fairy'"
+            },
+            {
+            "type": "formula",
+            "as": "method_label",
+            "expr": "datum.to_id==134?'Water Stone':datum.to_id==135?'Thunder Stone':datum.to_id==136?'Fire Stone':datum.to_id==196?'High friendship + daytime':datum.to_id==197?'High friendship + nighttime':datum.to_id==470?'Level up near Moss Rock':datum.to_id==471?'Level up near Ice Rock':'2 affection hearts + Fairy move'"
+            },
+            {
+            "type": "formula",
+            "as": "gen_label",
+            "expr": "datum.to_generation==1?'Gen I':datum.to_generation==2?'Gen II':datum.to_generation==4?'Gen IV':'Gen VI'"
+            },
+            {
+            "type": "formula",
+            "as": "gen_color",
+            "expr": "datum.to_generation==1?'#3B4CCA':datum.to_generation==2?'#2D9B93':datum.to_generation==4?'#DF9E00':'#AA72CD'"
+            },
+            {
+            "type": "formula",
+            "as": "card_bg",
+            "expr": "datum.to_generation==1?'#F2F4FF':datum.to_generation==2?'#EEF8F6':datum.to_generation==4?'#FFF8E7':'#F8F0FC'"
+            },
+            {
+            "type": "formula",
+            "as": "link_path",
+            "expr": "'M 380,294 C ' + (datum.card_x < 380 ? 313 : 447) + ',294 ' + (datum.card_x < 380 ? 313 : 447) + ',' + (datum.card_y+47) + ' ' + (datum.card_x < 380 ? datum.card_x+247 : datum.card_x) + ',' + (datum.card_y+47)"
+            }
+        ]
+        }
+    ],
+
+    "signals": [
+        {
+        "name": "generationFocus",
+        "value": "All",
+        "bind": {
+            "input": "select",
+            "name": "Highlight generation: ",
+            "options": [
+            "All",
+            "Gen I",
+            "Gen II",
+            "Gen IV",
+            "Gen VI"
+            ]
+        }
+        }
+    ],
+
+    "marks": [
+        {
+        "type": "text",
+        "encode": {
+            "enter": {
+            "x": {"value": 135},
+            "y": {"value": 23},
+            "text": {
+                "value": "EVOLUTIONS INTRODUCED ACROSS FOUR GENERATIONS"
+            },
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fontWeight": {"value": 700},
+            "fill": {"value": "#4D5A77"}
+            }
+        }
+        },
+
+        {
+        "type": "path",
+        "from": {"data": "branches"},
+        "encode": {
+            "update": {
+            "path": {"field": "link_path"},
+            "stroke": {"field": "gen_color"},
+            "strokeWidth": {"value": 3},
+            "strokeCap": {"value": "round"},
+            "fill": {"value": "transparent"},
+            "strokeOpacity": {
+                "signal": "generationFocus=='All' || generationFocus==datum.gen_label ? 0.78 : 0.08"
+            },
+            "tooltip": {
+                "signal": "'Eevee → '+datum.to_name+' ('+datum.gen_label+', '+datum.type_label+'): '+datum.method_label"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "rect",
+        "from": {"data": "branches"},
+        "encode": {
+            "enter": {
+            "x": {"field": "card_x"},
+            "x2": {"signal": "datum.card_x+247"},
+            "y": {"field": "card_y"},
+            "y2": {"signal": "datum.card_y+95"},
+            "cornerRadius": {"value": 11},
+            "strokeWidth": {"value": 1.3}
+            },
+            "update": {
+            "fill": {"field": "card_bg"},
+            "stroke": {"field": "gen_color"},
+            "opacity": {
+                "signal": "generationFocus=='All' || generationFocus==datum.gen_label ? 1 : 0.2"
+            },
+            "tooltip": {
+                "signal": "datum.to_name+' | '+datum.type_label+' | '+datum.gen_label+' | Original method: '+datum.method_label"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "rect",
+        "from": {"data": "branches"},
+        "encode": {
+            "enter": {
+            "x": {"field": "card_x"},
+            "x2": {"signal": "datum.card_x+5"},
+            "y": {"field": "card_y"},
+            "y2": {"signal": "datum.card_y+95"},
+            "cornerRadius": {"value": 2}
+            },
+            "update": {
+            "fill": {"field": "gen_color"},
+            "opacity": {
+                "signal": "generationFocus=='All' || generationFocus==datum.gen_label ? 1 : 0.2"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "branches"},
+        "encode": {
+            "enter": {
+            "x": {"signal": "datum.card_x+17"},
+            "y": {"signal": "datum.card_y+23"},
+            "text": {"field": "to_name"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 15},
+            "fontWeight": {"value": 700},
+            "fill": {"value": "#17213B"}
+            },
+            "update": {
+            "opacity": {
+                "signal": "generationFocus=='All' || generationFocus==datum.gen_label ? 1 : 0.18"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "branches"},
+        "encode": {
+            "enter": {
+            "x": {"signal": "datum.card_x+231"},
+            "y": {"signal": "datum.card_y+23"},
+            "align": {"value": "right"},
+            "text": {"field": "gen_label"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fontWeight": {"value": 700}
+            },
+            "update": {
+            "fill": {"field": "gen_color"},
+            "opacity": {
+                "signal": "generationFocus=='All' || generationFocus==datum.gen_label ? 1 : 0.18"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "branches"},
+        "encode": {
+            "enter": {
+            "x": {"signal": "datum.card_x+17"},
+            "y": {"signal": "datum.card_y+46"},
+            "text": {"signal": "datum.type_label+' type'"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 12},
+            "fill": {"value": "#4C5876"}
+            },
+            "update": {
+            "opacity": {
+                "signal": "generationFocus=='All' || generationFocus==datum.gen_label ? 1 : 0.18"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "branches"},
+        "encode": {
+            "enter": {
+            "x": {"signal": "datum.card_x+17"},
+            "y": {"signal": "datum.card_y+72"},
+            "text": {"field": "method_label"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fill": {"value": "#354364"}
+            },
+            "update": {
+            "opacity": {
+                "signal": "generationFocus=='All' || generationFocus==datum.gen_label ? 1 : 0.18"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "symbol",
+        "encode": {
+            "enter": {
+            "x": {"value": 380},
+            "y": {"value": 294},
+            "shape": {"value": "circle"},
+            "size": {"value": 9000},
+            "fill": {"value": "#FFCB05"},
+            "stroke": {"value": "#3B4CCA"},
+            "strokeWidth": {"value": 3}
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "encode": {
+            "enter": {
+            "x": {"value": 380},
+            "y": {"value": 286},
+            "text": {"value": "Eevee"},
+            "align": {"value": "center"},
+            "baseline": {"value": "middle"},
+            "font": {"value": "Fredoka"},
+            "fontSize": {"value": 21},
+            "fontWeight": {"value": 700},
+            "fill": {"value": "#15224A"}
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "encode": {
+            "enter": {
+            "x": {"value": 380},
+            "y": {"value": 311},
+            "text": {"value": "Gen I · Normal"},
+            "align": {"value": "center"},
+            "baseline": {"value": "middle"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 10},
+            "fill": {"value": "#15224A"}
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "encode": {
+            "enter": {
+            "x": {"value": 380},
+            "y": {"value": 580},
+            "text": {
+                "value": "Original evolution conditions are shown; methods can differ in newer games."
+            },
+            "align": {"value": "center"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fill": {"value": "#66728B"}
+            }
+        }
+        }
+    ]
+}
