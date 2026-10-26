@@ -1,0 +1,323 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Self-contained selected Pokemon franchise milestones, 1996–2026.",
+    "width": 700,
+    "height": 560,
+    "padding": 10,
+    "data": {
+        "values": [
+        {
+            "chart_label": "Red / Green · RPG origin",
+            "category": "Original RPG",
+            "plot_year": 1996.1557,
+            "year": 1996,
+            "date_label": "1996-02-27",
+            "description": "Original mainline RPG games launch in Japan"
+        },
+        {
+            "chart_label": "First manga chapter",
+            "category": "Manga & print",
+            "plot_year": 1996.2022,
+            "year": 1996,
+            "date_label": "1996-03-15",
+            "description": "Pocket Monsters manga is first published in CoroCoro Special"
+        },
+        {
+            "chart_label": "TCG launches in Japan",
+            "category": "Trading cards",
+            "plot_year": 1996.7869,
+            "year": 1996,
+            "date_label": "Oct 1996",
+            "description": "Physical Pokémon TCG launches in Japan"
+        },
+        {
+            "chart_label": "TV anime begins in Japan",
+            "category": "Screen & animation",
+            "plot_year": 1997.2849,
+            "year": 1997,
+            "date_label": "Apr 1997",
+            "description": "The Pokémon television anime begins broadcasting on TV Tokyo"
+        },
+        {
+            "chart_label": "Pokémon Center Tokyo opens",
+            "category": "Retail & community",
+            "plot_year": 1998.2849,
+            "year": 1998,
+            "date_label": "Apr 1998",
+            "description": "The first Pokémon Center Tokyo opens in Japan"
+        },
+        {
+            "chart_label": "First theatrical film",
+            "category": "Screen & animation",
+            "plot_year": 1998.5342,
+            "year": 1998,
+            "date_label": "Jul 1998",
+            "description": "Mewtwo Strikes Back is released theatrically in Japan"
+        },
+        {
+            "chart_label": "English TCG Base Set",
+            "category": "Trading cards",
+            "plot_year": 1999.0384,
+            "year": 1999,
+            "date_label": "Jan 1999",
+            "description": "Base Set launches in the United States"
+        },
+        {
+            "chart_label": "Pokémon Snap · photography",
+            "category": "Spin-off & mobile",
+            "plot_year": 1999.2164,
+            "year": 1999,
+            "date_label": "1999-03-21",
+            "description": "Pokémon expands into photography gameplay on Nintendo 64"
+        },
+        {
+            "chart_label": "Mystery Dungeon · roguelike",
+            "category": "Spin-off & mobile",
+            "plot_year": 2005.8767,
+            "year": 2005,
+            "date_label": "2005-11-17",
+            "description": "Red Rescue Team and Blue Rescue Team launch in Japan"
+        },
+        {
+            "chart_label": "POKÉMON with YOU",
+            "category": "Retail & community",
+            "plot_year": 2011.2849,
+            "year": 2011,
+            "date_label": "Apr 2011",
+            "description": "Community support initiative begins following the 2011 Japan earthquake and tsunami"
+        },
+        {
+            "chart_label": "Pokémon GO · location-based",
+            "category": "Spin-off & mobile",
+            "plot_year": 2016.5109,
+            "year": 2016,
+            "date_label": "2016-07-06",
+            "description": "Location-based smartphone game launches"
+        },
+        {
+            "chart_label": "Detective Pikachu · live action",
+            "category": "Screen & animation",
+            "plot_year": 2019.3534,
+            "year": 2019,
+            "date_label": "2019-05-10",
+            "description": "First live-action Pokémon feature film released in North America"
+        },
+        {
+            "chart_label": "Pokémon UNITE · team battle",
+            "category": "Spin-off & mobile",
+            "plot_year": 2021.5507,
+            "year": 2021,
+            "date_label": "2021-07-21",
+            "description": "5v5 strategic team battle game launches on Nintendo Switch"
+        },
+        {
+            "chart_label": "Pokémon Concierge · stop-motion",
+            "category": "Screen & animation",
+            "plot_year": 2023.989,
+            "year": 2023,
+            "date_label": "2023-12-28",
+            "description": "Stop-motion Pokémon series debuts internationally"
+        },
+        {
+            "chart_label": "TCG Pocket · digital cards",
+            "category": "Trading cards",
+            "plot_year": 2024.8279,
+            "year": 2024,
+            "date_label": "2024-10-30",
+            "description": "Digital collecting app for Android and iOS launches"
+        },
+        {
+            "chart_label": "Pokopia · life simulation",
+            "category": "Spin-off & mobile",
+            "plot_year": 2026.1726,
+            "year": 2026,
+            "date_label": "2026-03-05",
+            "description": "Pokémon life-simulation game launches on Nintendo Switch 2"
+        }
+        ]
+    },
+    "params": [
+        {
+        "name": "categoryFocus",
+        "value": "All",
+        "bind": {
+            "input": "select",
+            "name": "Highlight franchise branch: ",
+            "options": [
+            "All",
+            "Original RPG",
+            "Manga & print",
+            "Trading cards",
+            "Screen & animation",
+            "Retail & community",
+            "Spin-off & mobile"
+            ]
+        }
+        }
+    ],
+    "encoding": {
+        "x": {
+        "field": "plot_year",
+        "type": "quantitative",
+        "scale": {
+            "domain": [
+            1995,
+            2030.5
+            ],
+            "nice": false
+        },
+        "axis": {
+            "title": "Year of milestone",
+            "values": [
+            1996,
+            2000,
+            2005,
+            2010,
+            2015,
+            2020,
+            2025
+            ],
+            "format": ".0f",
+            "grid": true,
+            "gridColor": "#E8EDF8",
+            "labelFontSize": 11,
+            "titleFontSize": 12
+        }
+        },
+        "y": {
+        "field": "chart_label",
+        "type": "nominal",
+        "sort": [
+            "Red / Green · RPG origin",
+            "First manga chapter",
+            "TCG launches in Japan",
+            "TV anime begins in Japan",
+            "Pokémon Center Tokyo opens",
+            "First theatrical film",
+            "English TCG Base Set",
+            "Pokémon Snap · photography",
+            "Mystery Dungeon · roguelike",
+            "POKÉMON with YOU",
+            "Pokémon GO · location-based",
+            "Detective Pikachu · live action",
+            "Pokémon UNITE · team battle",
+            "Pokémon Concierge · stop-motion",
+            "TCG Pocket · digital cards",
+            "Pokopia · life simulation"
+        ],
+        "axis": {
+            "title": null,
+            "labelFontSize": 11,
+            "labelLimit": 235,
+            "labelPadding": 10,
+            "domain": false,
+            "ticks": false
+        }
+        },
+        "opacity": {
+        "condition": {
+            "test": "categoryFocus === 'All' || datum.category === categoryFocus",
+            "value": 1
+        },
+        "value": 0.13
+        },
+        "tooltip": [
+        {
+            "field": "chart_label",
+            "type": "nominal",
+            "title": "Milestone"
+        },
+        {
+            "field": "category",
+            "type": "nominal",
+            "title": "Franchise branch"
+        },
+        {
+            "field": "date_label",
+            "type": "nominal",
+            "title": "Date"
+        },
+        {
+            "field": "description",
+            "type": "nominal",
+            "title": "Context"
+        }
+        ]
+    },
+    "layer": [
+        {
+        "mark": {
+            "type": "circle",
+            "size": 185,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 1.8,
+            "cursor": "pointer"
+        },
+        "encoding": {
+            "color": {
+            "field": "category",
+            "type": "nominal",
+            "title": null,
+            "scale": {
+                "domain": [
+                "Original RPG",
+                "Manga & print",
+                "Trading cards",
+                "Screen & animation",
+                "Retail & community",
+                "Spin-off & mobile"
+                ],
+                "range": [
+                "#17213B",
+                "#8D6BC4",
+                "#E0A019",
+                "#5474D6",
+                "#3D9D80",
+                "#DB6D8C"
+                ]
+            },
+            "legend": {
+                "orient": "bottom",
+                "columns": 3,
+                "symbolSize": 95,
+                "labelFontSize": 11,
+                "offset": 15
+            }
+            }
+        }
+        },
+        {
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 11,
+            "fontSize": 10,
+            "font": "Inter",
+            "color": "#62708A"
+        },
+        "encoding": {
+            "text": {
+            "field": "year",
+            "type": "quantitative",
+            "format": ".0f"
+            }
+        }
+        }
+    ],
+    "config": {
+        "font": "Inter",
+        "view": {
+        "stroke": null
+        },
+        "axis": {
+        "domain": false,
+        "tickColor": "#BEC8E0",
+        "labelColor": "#52617F",
+        "titleColor": "#344063"
+        },
+        "legend": {
+        "labelColor": "#52617F"
+        }
+    }
+}

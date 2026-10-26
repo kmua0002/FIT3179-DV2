@@ -1,0 +1,18 @@
+
+id,sort_order,event,chart_label,category,year,month,day,precision,date_label,plot_year,description,source_url
+mainline,1,Red / Green launch in Japan,Red / Green · RPG origin,Original RPG,1996,2,27,day,1996-02-27,1996.1557,Original mainline RPG games launch in Japan,https://corporate.pokemon.co.jp/en/aboutus/history/
+manga,2,First Pokémon manga chapter,First manga chapter,Manga & print,1996,3,15,day,1996-03-15,1996.2022,Pocket Monsters manga is first published in CoroCoro Special,https://bulbapedia.bulbagarden.net/wiki/PM001
+tcg-jp,3,Pokémon Trading Card Game debuts in Japan,TCG launches in Japan,Trading cards,1996,10,,month,Oct 1996,1996.7869,Physical Pokémon TCG launches in Japan,https://corporate.pokemon.co.jp/en/aboutus/history/
+anime,4,Pokémon TV anime begins in Japan,TV anime begins in Japan,Screen & animation,1997,4,,month,Apr 1997,1997.2849,The Pokémon television anime begins broadcasting on TV Tokyo,https://corporate.pokemon.co.jp/en/aboutus/history/
+center,5,Pokémon Center Tokyo opens,Pokémon Center Tokyo opens,Retail & community,1998,4,,month,Apr 1998,1998.2849,The first Pokémon Center Tokyo opens in Japan,https://corporate.pokemon.co.jp/en/aboutus/history/
+film,6,First Pokémon theatrical film in Japan,First theatrical film,Screen & animation,1998,7,,month,Jul 1998,1998.5342,Mewtwo Strikes Back is released theatrically in Japan,https://corporate.pokemon.co.jp/en/aboutus/history/
+tcg-us,7,English-language Pokémon TCG Base Set launches,English TCG Base Set,Trading cards,1999,1,,month,Jan 1999,1999.0384,Base Set launches in the United States,https://corporate.pokemon.co.jp/en/aboutus/history/
+snap,8,Pokémon Snap releases in Japan,Pokémon Snap · photography,Spin-off & mobile,1999,3,21,day,1999-03-21,1999.2164,Pokémon expands into photography gameplay on Nintendo 64,https://www.hallab.co.jp/eng/works/detail/002730/
+dungeon,9,Mystery Dungeon debuts in Japan,Mystery Dungeon · roguelike,Spin-off & mobile,2005,11,17,day,2005-11-17,2005.8767,Red Rescue Team and Blue Rescue Team launch in Japan,https://bulbapedia.bulbagarden.net/wiki/PMD_Red
+you,10,POKÉMON with YOU begins,POKÉMON with YOU,Retail & community,2011,4,,month,Apr 2011,2011.2849,Community support initiative begins following the 2011 Japan earthquake and tsunami,https://corporate.pokemon.co.jp/en/aboutus/history/
+go,11,Pokémon GO launches,Pokémon GO · location-based,Spin-off & mobile,2016,7,6,day,2016-07-06,2016.5109,Location-based smartphone game launches,https://pokemongo.com/news/launch
+detective,12,Detective Pikachu live-action film,Detective Pikachu · live action,Screen & animation,2019,5,10,day,2019-05-10,2019.3534,First live-action Pokémon feature film released in North America,https://www.legendary.com/film/detective-pikachu/
+unite,13,Pokémon UNITE releases,Pokémon UNITE · team battle,Spin-off & mobile,2021,7,21,day,2021-07-21,2021.5507,5v5 strategic team battle game launches on Nintendo Switch,https://www.nintendo.com/au/games/nintendo-switch/pokemon-unite/
+concierge,14,Pokémon Concierge premieres,Pokémon Concierge · stop-motion,Screen & animation,2023,12,28,day,2023-12-28,2023.989,Stop-motion Pokémon series debuts internationally,https://press.pokemon.com/en/Items/Schedule/Animation-and-Movie?types=4
+pocket,15,Pokémon TCG Pocket launches,TCG Pocket · digital cards,Trading cards,2024,10,30,day,2024-10-30,2024.8279,Digital collecting app for Android and iOS launches,https://press.pokemon.com/en/Pokemon-Trading-Card-Game-Pocket/Focus/Pokemon-Trading-Card-Game-Pocket-Mega-Shine-Trailer
+pokopia,16,Pokémon Pokopia launches,Pokopia · life simulation,Spin-off & mobile,2026,3,5,day,2026-03-05,2026.1726,Pokémon life-simulation game launches on Nintendo Switch 2,https://www.nintendo.com/au/games/nintendo-switch-2/pokemon-pokopia/

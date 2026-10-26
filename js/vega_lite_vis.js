@@ -17,6 +17,7 @@ var vg_alcremie = "js/chart_alcremie_forms_matrix.vg.json?v=1";
 var vg_abilities = "js/chart_abilities_treemap.vg.json?v=2";
 var vg_tcg_calendar = "js/chart_tcg_release_calendar.vg.json?v=1";
 var vg_tcg_links = "js/chart_tcg_jp_en_links.vg.json?v=2";
+var vg_franchise_milestones = "js/chart_pokemon_franchise_milestones.vg.json?v=1";
 
 
 
@@ -135,4 +136,12 @@ vegaEmbed("#tcg_jp_en_links", vg_tcg_links, {
     actions: false
 }).then(function() {
     console.log("TCG source expansion links loaded.");
+}).catch(console.error);
+
+
+
+vegaEmbed("#franchise_milestone_timeline", vg_franchise_milestones, {
+    actions: false
+}).then(function() {
+    console.log("Pokémon franchise milestone timeline loaded.");
 }).catch(console.error);
