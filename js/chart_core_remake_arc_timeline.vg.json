@@ -1,0 +1,317 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "Five Pokémon core-series remake relationships linked across Japanese release years.",
+    "width": 710,
+    "height": 480,
+    "padding": {
+        "top": 14,
+        "left": 133,
+        "right": 20,
+        "bottom": 45
+    },
+    "autosize": "pad",
+    "background": "transparent",
+
+    "data": [
+        {
+        "name": "remakes",
+        "url": "data/pokemon_core_remake_links_research.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+            "original_date": "date:'%Y-%m-%d'",
+            "remake_date": "date:'%Y-%m-%d'",
+            "gap_years": "number"
+            }
+        }
+        }
+    ],
+
+    "signals": [
+        {
+        "name": "focus",
+        "value": "All pairs",
+        "bind": {
+            "input": "select",
+            "name": "Highlight remake: ",
+            "options": [
+            "All pairs",
+            "Red / Green",
+            "Yellow",
+            "Gold / Silver",
+            "Ruby / Sapphire",
+            "Diamond / Pearl"
+            ]
+        }
+        }
+    ],
+
+    "scales": [
+        {
+        "name": "x",
+        "type": "time",
+        "domain": [
+            {"signal": "datetime(1995,0,1)"},
+            {"signal": "datetime(2023,0,1)"}
+        ],
+        "range": "width"
+        },
+        {
+        "name": "lane",
+        "type": "band",
+        "domain": [
+            "Red / Green",
+            "Yellow",
+            "Gold / Silver",
+            "Ruby / Sapphire",
+            "Diamond / Pearl"
+        ],
+        "range": "height",
+        "paddingInner": 0.24,
+        "paddingOuter": 0.08
+        }
+    ],
+
+    "axes": [
+        {
+        "scale": "x",
+        "orient": "bottom",
+        "title": "Japanese first-release year",
+        "format": "%Y",
+        "tickCount": 8,
+        "grid": true,
+        "gridColor": "#E8EDF8",
+        "domain": false,
+        "tickColor": "#C6D0E7",
+        "labelColor": "#52617F",
+        "labelFont": "Inter",
+        "labelFontSize": 11,
+        "titleFont": "Inter",
+        "titleFontSize": 12,
+        "titleColor": "#344063",
+        "labelPadding": 8,
+        "titlePadding": 12
+        }
+    ],
+
+    "marks": [
+        {
+        "type": "rule",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {"value": 0},
+            "x2": {"signal": "width"},
+            "y": {
+                "signal": "scale('lane', datum.original_title) + bandwidth('lane') * 0.68"
+            },
+            "stroke": {"value": "#E8EDF8"},
+            "strokeWidth": {"value": 1.2}
+            }
+        }
+        },
+
+        {
+        "type": "path",
+        "name": "remakeArcs",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "path": {
+                "signal": "'M' + scale('x',datum.original_date) + ',' + (scale('lane',datum.original_title)+bandwidth('lane')*0.68) + ' Q' + ((scale('x',datum.original_date)+scale('x',datum.remake_date))/2) + ',' + (scale('lane',datum.original_title)+bandwidth('lane')*0.68-76) + ' ' + scale('x',datum.remake_date) + ',' + (scale('lane',datum.original_title)+bandwidth('lane')*0.68)"
+            },
+            "fill": {"value": "transparent"},
+            "stroke": {"value": "#7184D9"},
+            "strokeWidth": {"value": 3},
+            "strokeOpacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 0.85 : 0.12"
+            },
+            "cursor": {"value": "pointer"},
+            "tooltip": {
+                "signal": "datum.original_title + ' (' + timeFormat(datum.original_date,'%Y') + ', ' + datum.original_platform + ') → ' + datum.remake_title + ' (' + timeFormat(datum.remake_date,'%Y') + ', ' + datum.remake_platform + '). Time elapsed: ' + format(datum.gap_years,'.1f') + ' years.'"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "symbol",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {
+                "scale": "x",
+                "field": "original_date"
+            },
+            "y": {
+                "signal": "scale('lane',datum.original_title)+bandwidth('lane')*0.68"
+            },
+            "size": {"value": 160},
+            "fill": {"value": "#3B4CCA"},
+            "stroke": {"value": "#FFFFFF"},
+            "strokeWidth": {"value": 2},
+            "opacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 1 : 0.14"
+            },
+            "tooltip": {
+                "signal": "'Original: ' + datum.original_title + ' | ' + timeFormat(datum.original_date,'%d %b %Y') + ' | ' + datum.original_platform"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "symbol",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {
+                "scale": "x",
+                "field": "remake_date"
+            },
+            "y": {
+                "signal": "scale('lane',datum.original_title)+bandwidth('lane')*0.68"
+            },
+            "size": {"value": 180},
+            "fill": {"value": "#FFBF00"},
+            "stroke": {"value": "#FFFFFF"},
+            "strokeWidth": {"value": 2},
+            "opacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 1 : 0.14"
+            },
+            "tooltip": {
+                "signal": "'Remake: ' + datum.remake_title + ' | ' + timeFormat(datum.remake_date,'%d %b %Y') + ' | ' + datum.remake_platform"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {"value": -12},
+            "y": {
+                "signal": "scale('lane',datum.original_title)+bandwidth('lane')*0.68"
+            },
+            "text": {"field": "original_title"},
+            "align": {"value": "right"},
+            "baseline": {"value": "middle"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 12},
+            "fontWeight": {"value": 600},
+            "fill": {"value": "#344063"},
+            "opacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 1 : 0.25"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {
+                "signal": "(scale('x',datum.original_date)+scale('x',datum.remake_date))/2"
+            },
+            "y": {
+                "signal": "scale('lane',datum.original_title)+bandwidth('lane')*0.68-44"
+            },
+            "text": {
+                "signal": "format(datum.gap_years,'.1f') + ' years'"
+            },
+            "align": {"value": "center"},
+            "baseline": {"value": "bottom"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 12},
+            "fontWeight": {"value": 700},
+            "fill": {"value": "#3B4CCA"},
+            "opacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 1 : 0.18"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {
+                "scale": "x",
+                "field": "original_date"
+            },
+            "y": {
+                "signal": "scale('lane',datum.original_title)+bandwidth('lane')*0.68+15"
+            },
+            "text": {
+                "signal": "timeFormat(datum.original_date,'%Y')"
+            },
+            "align": {"value": "left"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fill": {"value": "#586684"},
+            "opacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 1 : 0.18"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {
+                "scale": "x",
+                "field": "remake_date"
+            },
+            "y": {
+                "signal": "scale('lane',datum.original_title)+bandwidth('lane')*0.68+15"
+            },
+            "text": {
+                "signal": "timeFormat(datum.remake_date,'%Y')"
+            },
+            "align": {"value": "right"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 11},
+            "fill": {"value": "#586684"},
+            "opacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 1 : 0.18"
+            }
+            }
+        }
+        },
+
+        {
+        "type": "text",
+        "from": {"data": "remakes"},
+        "encode": {
+            "update": {
+            "x": {
+                "scale": "x",
+                "field": "remake_date"
+            },
+            "y": {
+                "signal": "scale('lane',datum.original_title)+bandwidth('lane')*0.68+30"
+            },
+            "text": {
+                "field": "remake_title"
+            },
+            "align": {"value": "right"},
+            "font": {"value": "Inter"},
+            "fontSize": {"value": 10},
+            "fill": {"value": "#53627D"},
+            "opacity": {
+                "signal": "focus === 'All pairs' || focus === datum.original_title ? 1 : 0.18"
+            }
+            }
+        }
+        }
+    ]
+}
