@@ -1,0 +1,315 @@
+﻿ability_id,ability_name,identifier,generation_number,generation
+1,Stench,stench,3,Gen III
+2,Drizzle,drizzle,3,Gen III
+3,Speed Boost,speed-boost,3,Gen III
+4,Battle Armor,battle-armor,3,Gen III
+5,Sturdy,sturdy,3,Gen III
+6,Damp,damp,3,Gen III
+7,Limber,limber,3,Gen III
+8,Sand Veil,sand-veil,3,Gen III
+9,Static,static,3,Gen III
+10,Volt Absorb,volt-absorb,3,Gen III
+11,Water Absorb,water-absorb,3,Gen III
+12,Oblivious,oblivious,3,Gen III
+13,Cloud Nine,cloud-nine,3,Gen III
+14,Compound Eyes,compound-eyes,3,Gen III
+15,Insomnia,insomnia,3,Gen III
+16,Color Change,color-change,3,Gen III
+17,Immunity,immunity,3,Gen III
+18,Flash Fire,flash-fire,3,Gen III
+19,Shield Dust,shield-dust,3,Gen III
+20,Own Tempo,own-tempo,3,Gen III
+21,Suction Cups,suction-cups,3,Gen III
+22,Intimidate,intimidate,3,Gen III
+23,Shadow Tag,shadow-tag,3,Gen III
+24,Rough Skin,rough-skin,3,Gen III
+25,Wonder Guard,wonder-guard,3,Gen III
+26,Levitate,levitate,3,Gen III
+27,Effect Spore,effect-spore,3,Gen III
+28,Synchronize,synchronize,3,Gen III
+29,Clear Body,clear-body,3,Gen III
+30,Natural Cure,natural-cure,3,Gen III
+31,Lightning Rod,lightning-rod,3,Gen III
+32,Serene Grace,serene-grace,3,Gen III
+33,Swift Swim,swift-swim,3,Gen III
+34,Chlorophyll,chlorophyll,3,Gen III
+35,Illuminate,illuminate,3,Gen III
+36,Trace,trace,3,Gen III
+37,Huge Power,huge-power,3,Gen III
+38,Poison Point,poison-point,3,Gen III
+39,Inner Focus,inner-focus,3,Gen III
+40,Magma Armor,magma-armor,3,Gen III
+41,Water Veil,water-veil,3,Gen III
+42,Magnet Pull,magnet-pull,3,Gen III
+43,Soundproof,soundproof,3,Gen III
+44,Rain Dish,rain-dish,3,Gen III
+45,Sand Stream,sand-stream,3,Gen III
+46,Pressure,pressure,3,Gen III
+47,Thick Fat,thick-fat,3,Gen III
+48,Early Bird,early-bird,3,Gen III
+49,Flame Body,flame-body,3,Gen III
+50,Run Away,run-away,3,Gen III
+51,Keen Eye,keen-eye,3,Gen III
+52,Hyper Cutter,hyper-cutter,3,Gen III
+53,Pickup,pickup,3,Gen III
+54,Truant,truant,3,Gen III
+55,Hustle,hustle,3,Gen III
+56,Cute Charm,cute-charm,3,Gen III
+57,Plus,plus,3,Gen III
+58,Minus,minus,3,Gen III
+59,Forecast,forecast,3,Gen III
+60,Sticky Hold,sticky-hold,3,Gen III
+61,Shed Skin,shed-skin,3,Gen III
+62,Guts,guts,3,Gen III
+63,Marvel Scale,marvel-scale,3,Gen III
+64,Liquid Ooze,liquid-ooze,3,Gen III
+65,Overgrow,overgrow,3,Gen III
+66,Blaze,blaze,3,Gen III
+67,Torrent,torrent,3,Gen III
+68,Swarm,swarm,3,Gen III
+69,Rock Head,rock-head,3,Gen III
+70,Drought,drought,3,Gen III
+71,Arena Trap,arena-trap,3,Gen III
+72,Vital Spirit,vital-spirit,3,Gen III
+73,White Smoke,white-smoke,3,Gen III
+74,Pure Power,pure-power,3,Gen III
+75,Shell Armor,shell-armor,3,Gen III
+76,Air Lock,air-lock,3,Gen III
+77,Tangled Feet,tangled-feet,4,Gen IV
+78,Motor Drive,motor-drive,4,Gen IV
+79,Rivalry,rivalry,4,Gen IV
+80,Steadfast,steadfast,4,Gen IV
+81,Snow Cloak,snow-cloak,4,Gen IV
+82,Gluttony,gluttony,4,Gen IV
+83,Anger Point,anger-point,4,Gen IV
+84,Unburden,unburden,4,Gen IV
+85,Heatproof,heatproof,4,Gen IV
+86,Simple,simple,4,Gen IV
+87,Dry Skin,dry-skin,4,Gen IV
+88,Download,download,4,Gen IV
+89,Iron Fist,iron-fist,4,Gen IV
+90,Poison Heal,poison-heal,4,Gen IV
+91,Adaptability,adaptability,4,Gen IV
+92,Skill Link,skill-link,4,Gen IV
+93,Hydration,hydration,4,Gen IV
+94,Solar Power,solar-power,4,Gen IV
+95,Quick Feet,quick-feet,4,Gen IV
+96,Normalize,normalize,4,Gen IV
+97,Sniper,sniper,4,Gen IV
+98,Magic Guard,magic-guard,4,Gen IV
+99,No Guard,no-guard,4,Gen IV
+100,Stall,stall,4,Gen IV
+101,Technician,technician,4,Gen IV
+102,Leaf Guard,leaf-guard,4,Gen IV
+103,Klutz,klutz,4,Gen IV
+104,Mold Breaker,mold-breaker,4,Gen IV
+105,Super Luck,super-luck,4,Gen IV
+106,Aftermath,aftermath,4,Gen IV
+107,Anticipation,anticipation,4,Gen IV
+108,Forewarn,forewarn,4,Gen IV
+109,Unaware,unaware,4,Gen IV
+110,Tinted Lens,tinted-lens,4,Gen IV
+111,Filter,filter,4,Gen IV
+112,Slow Start,slow-start,4,Gen IV
+113,Scrappy,scrappy,4,Gen IV
+114,Storm Drain,storm-drain,4,Gen IV
+115,Ice Body,ice-body,4,Gen IV
+116,Solid Rock,solid-rock,4,Gen IV
+117,Snow Warning,snow-warning,4,Gen IV
+118,Honey Gather,honey-gather,4,Gen IV
+119,Frisk,frisk,4,Gen IV
+120,Reckless,reckless,4,Gen IV
+121,Multitype,multitype,4,Gen IV
+122,Flower Gift,flower-gift,4,Gen IV
+123,Bad Dreams,bad-dreams,4,Gen IV
+124,Pickpocket,pickpocket,5,Gen V
+125,Sheer Force,sheer-force,5,Gen V
+126,Contrary,contrary,5,Gen V
+127,Unnerve,unnerve,5,Gen V
+128,Defiant,defiant,5,Gen V
+129,Defeatist,defeatist,5,Gen V
+130,Cursed Body,cursed-body,5,Gen V
+131,Healer,healer,5,Gen V
+132,Friend Guard,friend-guard,5,Gen V
+133,Weak Armor,weak-armor,5,Gen V
+134,Heavy Metal,heavy-metal,5,Gen V
+135,Light Metal,light-metal,5,Gen V
+136,Multiscale,multiscale,5,Gen V
+137,Toxic Boost,toxic-boost,5,Gen V
+138,Flare Boost,flare-boost,5,Gen V
+139,Harvest,harvest,5,Gen V
+140,Telepathy,telepathy,5,Gen V
+141,Moody,moody,5,Gen V
+142,Overcoat,overcoat,5,Gen V
+143,Poison Touch,poison-touch,5,Gen V
+144,Regenerator,regenerator,5,Gen V
+145,Big Pecks,big-pecks,5,Gen V
+146,Sand Rush,sand-rush,5,Gen V
+147,Wonder Skin,wonder-skin,5,Gen V
+148,Analytic,analytic,5,Gen V
+149,Illusion,illusion,5,Gen V
+150,Imposter,imposter,5,Gen V
+151,Infiltrator,infiltrator,5,Gen V
+152,Mummy,mummy,5,Gen V
+153,Moxie,moxie,5,Gen V
+154,Justified,justified,5,Gen V
+155,Rattled,rattled,5,Gen V
+156,Magic Bounce,magic-bounce,5,Gen V
+157,Sap Sipper,sap-sipper,5,Gen V
+158,Prankster,prankster,5,Gen V
+159,Sand Force,sand-force,5,Gen V
+160,Iron Barbs,iron-barbs,5,Gen V
+161,Zen Mode,zen-mode,5,Gen V
+162,Victory Star,victory-star,5,Gen V
+163,Turboblaze,turboblaze,5,Gen V
+164,Teravolt,teravolt,5,Gen V
+165,Aroma Veil,aroma-veil,6,Gen VI
+166,Flower Veil,flower-veil,6,Gen VI
+167,Cheek Pouch,cheek-pouch,6,Gen VI
+168,Protean,protean,6,Gen VI
+169,Fur Coat,fur-coat,6,Gen VI
+170,Magician,magician,6,Gen VI
+171,Bulletproof,bulletproof,6,Gen VI
+172,Competitive,competitive,6,Gen VI
+173,Strong Jaw,strong-jaw,6,Gen VI
+174,Refrigerate,refrigerate,6,Gen VI
+175,Sweet Veil,sweet-veil,6,Gen VI
+176,Stance Change,stance-change,6,Gen VI
+177,Gale Wings,gale-wings,6,Gen VI
+178,Mega Launcher,mega-launcher,6,Gen VI
+179,Grass Pelt,grass-pelt,6,Gen VI
+180,Symbiosis,symbiosis,6,Gen VI
+181,Tough Claws,tough-claws,6,Gen VI
+182,Pixilate,pixilate,6,Gen VI
+183,Gooey,gooey,6,Gen VI
+184,Aerilate,aerilate,6,Gen VI
+185,Parental Bond,parental-bond,6,Gen VI
+186,Dark Aura,dark-aura,6,Gen VI
+187,Fairy Aura,fairy-aura,6,Gen VI
+188,Aura Break,aura-break,6,Gen VI
+189,Primordial Sea,primordial-sea,6,Gen VI
+190,Desolate Land,desolate-land,6,Gen VI
+191,Delta Stream,delta-stream,6,Gen VI
+192,Stamina,stamina,7,Gen VII
+193,Wimp Out,wimp-out,7,Gen VII
+194,Emergency Exit,emergency-exit,7,Gen VII
+195,Water Compaction,water-compaction,7,Gen VII
+196,Merciless,merciless,7,Gen VII
+197,Shields Down,shields-down,7,Gen VII
+198,Stakeout,stakeout,7,Gen VII
+199,Water Bubble,water-bubble,7,Gen VII
+200,Steelworker,steelworker,7,Gen VII
+201,Berserk,berserk,7,Gen VII
+202,Slush Rush,slush-rush,7,Gen VII
+203,Long Reach,long-reach,7,Gen VII
+204,Liquid Voice,liquid-voice,7,Gen VII
+205,Triage,triage,7,Gen VII
+206,Galvanize,galvanize,7,Gen VII
+207,Surge Surfer,surge-surfer,7,Gen VII
+208,Schooling,schooling,7,Gen VII
+209,Disguise,disguise,7,Gen VII
+210,Battle Bond,battle-bond,7,Gen VII
+211,Power Construct,power-construct,7,Gen VII
+212,Corrosion,corrosion,7,Gen VII
+213,Comatose,comatose,7,Gen VII
+214,Queenly Majesty,queenly-majesty,7,Gen VII
+215,Innards Out,innards-out,7,Gen VII
+216,Dancer,dancer,7,Gen VII
+217,Battery,battery,7,Gen VII
+218,Fluffy,fluffy,7,Gen VII
+219,Dazzling,dazzling,7,Gen VII
+220,Soul-Heart,soul-heart,7,Gen VII
+221,Tangling Hair,tangling-hair,7,Gen VII
+222,Receiver,receiver,7,Gen VII
+223,Power of Alchemy,power-of-alchemy,7,Gen VII
+224,Beast Boost,beast-boost,7,Gen VII
+225,RKS System,rks-system,7,Gen VII
+226,Electric Surge,electric-surge,7,Gen VII
+227,Psychic Surge,psychic-surge,7,Gen VII
+228,Misty Surge,misty-surge,7,Gen VII
+229,Grassy Surge,grassy-surge,7,Gen VII
+230,Full Metal Body,full-metal-body,7,Gen VII
+231,Shadow Shield,shadow-shield,7,Gen VII
+232,Prism Armor,prism-armor,7,Gen VII
+233,Neuroforce,neuroforce,7,Gen VII
+234,Intrepid Sword,intrepid-sword,8,Gen VIII
+235,Dauntless Shield,dauntless-shield,8,Gen VIII
+236,Libero,libero,8,Gen VIII
+237,Ball Fetch,ball-fetch,8,Gen VIII
+238,Cotton Down,cotton-down,8,Gen VIII
+239,Propeller Tail,propeller-tail,8,Gen VIII
+240,Mirror Armor,mirror-armor,8,Gen VIII
+241,Gulp Missile,gulp-missile,8,Gen VIII
+242,Stalwart,stalwart,8,Gen VIII
+243,Steam Engine,steam-engine,8,Gen VIII
+244,Punk Rock,punk-rock,8,Gen VIII
+245,Sand Spit,sand-spit,8,Gen VIII
+246,Ice Scales,ice-scales,8,Gen VIII
+247,Ripen,ripen,8,Gen VIII
+248,Ice Face,ice-face,8,Gen VIII
+249,Power Spot,power-spot,8,Gen VIII
+250,Mimicry,mimicry,8,Gen VIII
+251,Screen Cleaner,screen-cleaner,8,Gen VIII
+252,Steely Spirit,steely-spirit,8,Gen VIII
+253,Perish Body,perish-body,8,Gen VIII
+254,Wandering Spirit,wandering-spirit,8,Gen VIII
+255,Gorilla Tactics,gorilla-tactics,8,Gen VIII
+256,Neutralizing Gas,neutralizing-gas,8,Gen VIII
+257,Pastel Veil,pastel-veil,8,Gen VIII
+258,Hunger Switch,hunger-switch,8,Gen VIII
+259,Quick Draw,quick-draw,8,Gen VIII
+260,Unseen Fist,unseen-fist,8,Gen VIII
+261,Curious Medicine,curious-medicine,8,Gen VIII
+262,Transistor,transistor,8,Gen VIII
+263,Dragon’s Maw,dragons-maw,8,Gen VIII
+264,Chilling Neigh,chilling-neigh,8,Gen VIII
+265,Grim Neigh,grim-neigh,8,Gen VIII
+266,As One,as-one-glastrier,8,Gen VIII
+267,As One,as-one-spectrier,8,Gen VIII
+268,Lingering Aroma,lingering-aroma,9,Gen IX
+269,Seed Sower,seed-sower,9,Gen IX
+270,Thermal Exchange,thermal-exchange,9,Gen IX
+271,Anger Shell,anger-shell,9,Gen IX
+272,Purifying Salt,purifying-salt,9,Gen IX
+273,Well-Baked Body,well-baked-body,9,Gen IX
+274,Wind Rider,wind-rider,9,Gen IX
+275,Guard Dog,guard-dog,9,Gen IX
+276,Rocky Payload,rocky-payload,9,Gen IX
+277,Wind Power,wind-power,9,Gen IX
+278,Zero to Hero,zero-to-hero,9,Gen IX
+279,Commander,commander,9,Gen IX
+280,Electromorphosis,electromorphosis,9,Gen IX
+281,Protosynthesis,protosynthesis,9,Gen IX
+282,Quark Drive,quark-drive,9,Gen IX
+283,Good as Gold,good-as-gold,9,Gen IX
+284,Vessel of Ruin,vessel-of-ruin,9,Gen IX
+285,Sword of Ruin,sword-of-ruin,9,Gen IX
+286,Tablets of Ruin,tablets-of-ruin,9,Gen IX
+287,Beads of Ruin,beads-of-ruin,9,Gen IX
+288,Orichalcum Pulse,orichalcum-pulse,9,Gen IX
+289,Hadron Engine,hadron-engine,9,Gen IX
+290,Opportunist,opportunist,9,Gen IX
+291,Cud Chew,cud-chew,9,Gen IX
+292,Sharpness,sharpness,9,Gen IX
+293,Supreme Overlord,supreme-overlord,9,Gen IX
+294,Costar,costar,9,Gen IX
+295,Toxic Debris,toxic-debris,9,Gen IX
+296,Armor Tail,armor-tail,9,Gen IX
+297,Earth Eater,earth-eater,9,Gen IX
+298,Mycelium Might,mycelium-might,9,Gen IX
+299,Mind’s Eye,minds-eye,9,Gen IX
+300,Supersweet Syrup,supersweet-syrup,9,Gen IX
+301,Hospitality,hospitality,9,Gen IX
+302,Toxic Chain,toxic-chain,9,Gen IX
+303,Embody Aspect,embody-aspect,9,Gen IX
+304,Tera Shift,tera-shift,9,Gen IX
+305,Tera Shell,tera-shell,9,Gen IX
+306,Teraform Zero,teraform-zero,9,Gen IX
+307,Poison Puppeteer,poison-puppeteer,9,Gen IX
+308,Piercing Drill,piercing-drill,9,Gen IX
+309,Dragonize,dragonize,9,Gen IX
+310,Mega Sol,mega-sol,9,Gen IX
+311,Spicy Spray,spicy-spray,9,Gen IX
+312,Eelevate,eelevate,9,Gen IX
+313,Fire Mane,fire-mane,9,Gen IX
+314,Aura Guard,aura-guard,9,Gen IX
