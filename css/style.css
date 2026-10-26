@@ -979,3 +979,47 @@ body {
         font-size: 27px;
     }
 }
+
+
+
+/* =====================================
+   CHART FINDING ANNOTATIONS
+===================================== */
+
+.insight-strip {
+    max-width: 780px;
+    box-sizing: border-box;
+
+    margin: 18px 0 20px;
+    padding: 14px 18px;
+
+    background: #F5F7FE;
+    border-left: 4px solid #3B4CCA;
+    border-radius: 0 10px 10px 0;
+}
+
+.insight-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #3B4CCA;
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.insight-strip p {
+    margin: 0;
+
+    color: #52617F;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.insight-strip strong {
+    color: #17213B;
+    font-weight: 700;
+}
