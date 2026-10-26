@@ -1,0 +1,187 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Provisional monthly release activity in English and Japanese Pokemon TCG catalogues, 2017-2025.",
+
+    "data": {
+        "url": "data/tcg_release_calendar_2017_2025.csv",
+        "format": {
+        "type": "csv",
+        "parse": {
+            "release_year": "number",
+            "release_month": "number",
+            "sets_launched": "number",
+            "distinct_launch_dates": "number"
+        }
+        }
+    },
+
+    "params": [
+        {
+        "name": "tcgMetric",
+        "value": "distinct_launch_dates",
+        "bind": {
+            "input": "select",
+            "name": "Count: ",
+            "options": [
+            "distinct_launch_dates",
+            "sets_launched"
+            ],
+            "labels": [
+            "Release dates",
+            "Individual sets"
+            ]
+        }
+        }
+    ],
+
+    "transform": [
+        {
+        "calculate": "tcgMetric === 'sets_launched' ? datum.sets_launched : datum.distinct_launch_dates",
+        "as": "display_count"
+        }
+    ],
+
+    "facet": {
+        "row": {
+        "field": "market_label",
+        "type": "nominal",
+        "sort": [
+            "English catalogue",
+            "Japanese catalogue"
+        ],
+        "header": {
+            "title": null,
+            "labelOrient": "top",
+            "labelAnchor": "start",
+            "labelFont": "Inter",
+            "labelFontSize": 15,
+            "labelFontWeight": "bold",
+            "labelColor": "#17213B",
+            "labelPadding": 10
+        }
+        }
+    },
+
+    "spec": {
+        "width": 660,
+        "height": 225,
+
+        "mark": {
+        "type": "rect",
+        "cornerRadius": 3,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.5
+        },
+
+        "encoding": {
+        "x": {
+            "field": "month_label",
+            "type": "ordinal",
+            "sort": [
+            "Jan", "Feb", "Mar", "Apr",
+            "May", "Jun", "Jul", "Aug",
+            "Sep", "Oct", "Nov", "Dec"
+            ],
+            "axis": {
+            "title": "Month",
+            "labelAngle": 0,
+            "labelFontSize": 11,
+            "labelPadding": 7,
+            "titlePadding": 12,
+            "grid": false,
+            "domain": false,
+            "ticks": false
+            }
+        },
+
+        "y": {
+            "field": "release_year",
+            "type": "ordinal",
+            "sort": "ascending",
+            "axis": {
+            "title": null,
+            "labelFontSize": 11,
+            "labelPadding": 10,
+            "grid": false,
+            "domain": false,
+            "ticks": false
+            }
+        },
+
+        "color": {
+            "field": "display_count",
+            "type": "quantitative",
+            "title": "Releases per month",
+            "scale": {
+            "domain": [0, 3],
+            "range": [
+                "#EDF1FD",
+                "#3145BF"
+            ]
+            },
+            "legend": {
+            "orient": "bottom",
+            "values": [0, 1, 2, 3],
+            "gradientLength": 250,
+            "labelFontSize": 11,
+            "titleFontSize": 12
+            }
+        },
+
+        "tooltip": [
+            {
+            "field": "market_label",
+            "type": "nominal",
+            "title": "Catalogue"
+            },
+            {
+            "field": "release_year",
+            "type": "ordinal",
+            "title": "Year"
+            },
+            {
+            "field": "month_label",
+            "type": "nominal",
+            "title": "Month"
+            },
+            {
+            "field": "distinct_launch_dates",
+            "type": "quantitative",
+            "title": "Distinct launch dates",
+            "format": ".0f"
+            },
+            {
+            "field": "sets_launched",
+            "type": "quantitative",
+            "title": "Individual sets",
+            "format": ".0f"
+            }
+        ]
+        }
+    },
+
+    "resolve": {
+        "scale": {
+        "color": "shared"
+        }
+    },
+
+    "config": {
+        "font": "Inter",
+        "view": {
+        "stroke": null
+        },
+        "facet": {
+        "spacing": 25
+        },
+        "axis": {
+        "labelColor": "#52617F",
+        "titleColor": "#344063"
+        },
+        "legend": {
+        "labelColor": "#52617F",
+        "titleColor": "#344063"
+        }
+    }
+}
