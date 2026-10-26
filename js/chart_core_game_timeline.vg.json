@@ -1,0 +1,237 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Timeline of 23 Pokémon core-series game families by their Japanese debut dates and original Nintendo platforms.",
+
+    "width": "container",
+    "height": 370,
+    "autosize": {
+        "type": "fit",
+        "contains": "padding"
+    },
+
+    "data": {
+        "url": "data/pokemon_core_game_families_chart.csv"
+    },
+
+    "transform": [
+        {
+        "calculate": "datum.release_role === 'original_pair' ? 'Original launch' : datum.release_role === 'remake_pair' ? 'Remake' : datum.release_role === 'sequel_pair' ? 'Sequel' : datum.release_role === 'legends_single' ? 'Legends' : 'Enhanced edition'",
+        "as": "release_category"
+        }
+    ],
+
+    "params": [
+        {
+        "name": "roleFocus",
+        "value": "All",
+        "bind": {
+            "input": "select",
+            "options": [
+            "All",
+            "Original launch",
+            "Enhanced edition",
+            "Sequel",
+            "Remake",
+            "Legends"
+            ],
+            "name": "Highlight category: "
+        }
+        }
+    ],
+
+    "layer": [
+        {
+        "mark": {
+            "type": "bar",
+            "size": 14,
+            "color": "#E6EBF8",
+            "cornerRadius": 7
+        },
+        "encoding": {
+            "y": {
+            "field": "debut_platform",
+            "type": "nominal",
+            "sort": [
+                "Game Boy",
+                "Game Boy Color",
+                "Game Boy Advance",
+                "Nintendo DS",
+                "Nintendo 3DS",
+                "Nintendo Switch"
+            ],
+            "axis": {
+                "title": null,
+                "labelFontSize": 12,
+                "labelLimit": 160,
+                "labelPadding": 12,
+                "domain": false,
+                "ticks": false
+            }
+            },
+            "x": {
+            "aggregate": "min",
+            "field": "japan_release_date",
+            "type": "temporal",
+            "scale": {
+                "domain": [
+                "1995-01-01",
+                "2027-01-01"
+                ],
+                "nice": false
+            },
+            "axis": {
+                "title": "Japanese debut year",
+                "format": "%Y",
+                "tickCount": 9,
+                "grid": true,
+                "gridColor": "#E7EBF7",
+                "labelFontSize": 11,
+                "titleFontSize": 12
+            }
+            },
+            "x2": {
+            "aggregate": "max",
+            "field": "japan_release_date"
+            }
+        }
+        },
+
+        {
+        "mark": {
+            "type": "circle",
+            "size": 210,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 1.8,
+            "cursor": "pointer"
+        },
+
+        "encoding": {
+            "x": {
+            "field": "japan_release_date",
+            "type": "temporal",
+            "scale": {
+                "domain": [
+                "1995-01-01",
+                "2027-01-01"
+                ],
+                "nice": false
+            },
+            "axis": {
+                "title": "Japanese debut year",
+                "format": "%Y",
+                "tickCount": 9,
+                "grid": true,
+                "gridColor": "#E7EBF7",
+                "labelFontSize": 11,
+                "titleFontSize": 12
+            }
+            },
+
+            "y": {
+            "field": "debut_platform",
+            "type": "nominal",
+            "sort": [
+                "Game Boy",
+                "Game Boy Color",
+                "Game Boy Advance",
+                "Nintendo DS",
+                "Nintendo 3DS",
+                "Nintendo Switch"
+            ],
+            "axis": {
+                "title": null,
+                "labelFontSize": 12,
+                "labelLimit": 160,
+                "labelPadding": 12,
+                "domain": false,
+                "ticks": false
+            }
+            },
+
+            "color": {
+            "field": "release_category",
+            "type": "nominal",
+            "title": null,
+            "scale": {
+                "domain": [
+                "Original launch",
+                "Enhanced edition",
+                "Sequel",
+                "Remake",
+                "Legends"
+                ],
+                "range": [
+                "#3B4CCA",
+                "#959FD6",
+                "#4F9E96",
+                "#FFB300",
+                "#CD81CA"
+                ]
+            },
+            "legend": {
+                "orient": "bottom",
+                "columns": 3,
+                "symbolSize": 130,
+                "labelFontSize": 11,
+                "offset": 15
+            }
+            },
+
+            "opacity": {
+            "condition": {
+                "test": "roleFocus === 'All' || datum.release_category === roleFocus",
+                "value": 1
+            },
+            "value": 0.14
+            },
+
+            "tooltip": [
+            {
+                "field": "title",
+                "type": "nominal",
+                "title": "Game family"
+            },
+            {
+                "field": "japan_release_date",
+                "type": "temporal",
+                "title": "Japan debut",
+                "format": "%d %b %Y"
+            },
+            {
+                "field": "debut_platform",
+                "type": "nominal",
+                "title": "First platform"
+            },
+            {
+                "field": "release_category",
+                "type": "nominal",
+                "title": "Release category"
+            },
+            {
+                "field": "release_generation",
+                "type": "quantitative",
+                "title": "Generation",
+                "format": ".0f"
+            }
+            ]
+        }
+        }
+    ],
+
+    "config": {
+        "font": "Inter",
+        "view": {
+        "stroke": null
+        },
+        "axis": {
+        "labelColor": "#4E5B78",
+        "titleColor": "#344063",
+        "domain": false,
+        "tickColor": "#C8D2EA"
+        },
+        "legend": {
+        "labelColor": "#4E5B78"
+        }
+    }
+}
