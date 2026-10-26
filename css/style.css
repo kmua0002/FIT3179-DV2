@@ -1023,3 +1023,137 @@ body {
     color: #17213B;
     font-weight: 700;
 }
+
+
+
+
+/* =====================================
+   SOURCES AND METHODOLOGY
+===================================== */
+
+.sources-section {
+    margin: 66px 0 24px;
+}
+
+.sources-heading {
+    margin-bottom: 20px;
+}
+
+.sources-heading h2 {
+    margin: 4px 0 8px;
+    font-family: "Fredoka", "Inter", sans-serif;
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.2;
+}
+
+.sources-heading p {
+    max-width: 790px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.sources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.sources-card,
+.methods-card {
+    min-width: 0;
+    padding: 22px 24px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.sources-card h3,
+.methods-card h3 {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-family: "Fredoka", "Inter", sans-serif;
+    font-size: 19px;
+}
+
+.sources-card p {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.source-links {
+    margin: 0;
+    padding-left: 19px;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.source-links a {
+    color: var(--pokemon-blue-dark);
+    overflow-wrap: anywhere;
+    text-underline-offset: 3px;
+}
+
+.source-links a:hover,
+.source-links a:focus-visible {
+    color: var(--pokemon-red);
+}
+
+.methods-card {
+    margin-top: 16px;
+}
+
+.methods-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 26px;
+    margin: 12px 0 0;
+}
+
+.methods-list > div {
+    min-width: 0;
+}
+
+.methods-list dt {
+    margin-bottom: 5px;
+    color: var(--pokemon-blue-dark);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.methods-list dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.sources-ai-note {
+    max-width: 920px;
+    margin: 18px 0 0;
+    padding: 14px 18px;
+    border-left: 3px solid var(--pokemon-blue);
+    background: #EAF0FF;
+    border-radius: 0 9px 9px 0;
+    color: #4F607F;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.sources-ai-note strong {
+    color: var(--ink);
+}
+
+@media (max-width: 720px) {
+    .sources-grid,
+    .methods-list {
+        grid-template-columns: 1fr;
+    }
+
+    .sources-card,
+    .methods-card {
+        padding: 20px;
+    }
+}

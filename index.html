@@ -1775,29 +1775,258 @@
 
 
     <!-- =====================================
+        SOURCES AND METHODOLOGY
+    ====================================== -->
+    <section class="sources-section" aria-labelledby="sources-title">
+
+        <div class="sources-heading">
+            <div class="section-kicker">Data Transparency</div>
+            <h2 id="sources-title">Sources &amp; Methodology</h2>
+            <p>
+                This visualisation combines public datasets,
+                historical release information and derived summaries.
+                The charts use defined data snapshots and selected
+                case studies, not live counts of the entire
+                Pokémon franchise.
+            </p>
+        </div>
+
+        <div class="sources-grid">
+
+            <article class="sources-card">
+                <h3>Pokémon species &amp; mechanics</h3>
+                <p>
+                    Species, introduction generations, modern types,
+                    base statistics, evolution families and Abilities.
+                </p>
+                <ul class="source-links">
+                    <li>
+                        <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">
+                            PokéAPI — species and game data
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://pokeapi.co/docs/v2" target="_blank" rel="noopener noreferrer">
+                            PokéAPI — API documentation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Alcremie_(Pok%C3%A9mon)" target="_blank" rel="noopener noreferrer">
+                            Bulbapedia — Alcremie form mechanics
+                        </a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="sources-card">
+                <h3>Games &amp; franchise history</h3>
+                <p>
+                    Core-game release chronology, consoles, remakes
+                    and selected milestones in the wider franchise.
+                </p>
+                <ul class="source-links">
+                    <li>
+                        <a href="https://corporate.pokemon.co.jp/en/aboutus/history/" target="_blank" rel="noopener noreferrer">
+                            The Pokémon Company — history
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://corporate.pokemon.com/en-us/about/" target="_blank" rel="noopener noreferrer">
+                            The Pokémon Company International — milestones
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pokemon.co.jp/ex/xy/battle/01.html" target="_blank" rel="noopener noreferrer">
+                            Official Pokémon X/Y — type history
+                        </a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="sources-card">
+                <h3>Trading Card Game</h3>
+                <p>
+                    English and Japanese set catalogues, release
+                    dates, and a curated sample of Japanese-to-English
+                    source relationships.
+                </p>
+                <ul class="source-links">
+                    <li>
+                        <a href="https://tcgdex.dev/" target="_blank" rel="noopener noreferrer">
+                            TCGdex — multilingual set catalogue
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Tcg_sets" target="_blank" rel="noopener noreferrer">
+                            Bulbapedia — TCG expansion history
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pokemon-card.com/" target="_blank" rel="noopener noreferrer">
+                            Official Japanese Pokémon Card Game
+                        </a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="sources-card">
+                <h3>Poké Lids &amp; geography</h3>
+                <p>
+                    Recorded Poké Lid locations and featured Pokémon,
+                    joined to Japanese prefecture boundaries for
+                    the three maps.
+                </p>
+                <ul class="source-links">
+                    <li>
+                        <a href="https://local.pokemon.jp/en/manhole/" target="_blank" rel="noopener noreferrer">
+                            Pokémon Local Acts — official Poké Lid catalogue
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Sufiane/dexkepo" target="_blank" rel="noopener noreferrer">
+                            dexkepo — community 470-record dataset
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" target="_blank" rel="noopener noreferrer">
+                            Natural Earth — prefecture boundaries
+                        </a>
+                    </li>
+                </ul>
+            </article>
+
+        </div>
+
+        <div class="methods-card">
+
+            <h3>How the data were prepared</h3>
+
+            <dl class="methods-list">
+
+                <div>
+                    <dt>Pokédex and battle mechanics</dt>
+                    <dd>
+                        The analysis covers the 1,025 species introduced
+                        in Generations I–IX, rather than treating
+                        alternate forms as additional species.
+
+                        Types and statistics reflect the collected
+                        modern data, not reconstructed historical
+                        game versions.
+
+                        Evolution relationships and Ability counts
+                        were derived from PokéAPI records.
+                    </dd>
+                </div>
+
+                <div>
+                    <dt>Games and wider franchise</dt>
+                    <dd>
+                        Related paired game versions count as one
+                        game family. Console charts use first Japanese
+                        releases, not ports or the entire commercial
+                        lifespan of each console.
+
+                        The franchise timeline is a curated selection
+                        of 16 events, not a census of all Pokémon media
+                        and merchandise.
+                    </dd>
+                </div>
+
+                <div>
+                    <dt>TCG comparisons</dt>
+                    <dd>
+                        The 2017–2025 calendars use audited but
+                        provisional TCGdex expansion candidates.
+
+                        Identified promotions, card subsets, decks
+                        and digital TCG Pocket releases were excluded.
+
+                        A set and a distinct launch date are counted
+                        separately; source catalogues may be incomplete.
+
+                        The 2023–2024 relationship diagram shows
+                        selected major source sets, not a complete
+                        card-by-card mapping.
+                    </dd>
+                </div>
+
+                <div>
+                    <dt>Japan Poké Lid maps</dt>
+                    <dd>
+                        A fixed community-maintained snapshot contains
+                        470 unique recorded lids across 41 of Japan's
+                        47 prefectures.
+
+                        The Generation I map counts each lid once if it
+                        features at least one Gen I species.
+
+                        Six prefectures without recorded lids are
+                        shown as no data, not zero percent.
+
+                        The snapshot is not a live official
+                        installation total.
+                    </dd>
+                </div>
+
+            </dl>
+
+        </div>
+
+        
+        <p class="sources-ai-note">
+
+            <strong>Generative AI acknowledgement:</strong>
+
+            ChatGPT (OpenAI,
+            <a href="https://chatgpt.com"
+            target="_blank"
+            rel="noopener noreferrer">
+            chatgpt.com
+            </a>)
+            was used throughout this project to assist with
+            visualisation planning, data research, Python
+            scripting, Vega/Vega-Lite specifications,
+            HTML/CSS development, debugging and writing.
+
+            AI-assisted code, chart specifications and
+            explanatory content were incorporated into
+            the website in modified form.
+
+            Development involved at least eight major
+            dashboard draft and review cycles, with
+            multiple AI-assisted iterations.
+
+            Outputs were adapted through script execution,
+            dataset inspection, browser testing,
+            troubleshooting and revisions to chart layouts,
+            interactions and storytelling.
+
+            Dataset limitations and methodological decisions
+            are documented above.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =====================================
         FOOTER
     ====================================== -->
 
     <footer class="page-footer">
 
         <p>
-
-            <strong>Data:</strong>
-            PokéAPI species and statistics,
-            core-series game release records,
-            Pokémon Local Acts Poké Lid catalogue
-            (community-maintained dataset snapshot),
-            and Natural Earth geographic boundaries.
-
+            FIT3179 Data Visualisation 2 · October 2026 ·
+            Built with Vega and Vega-Lite.
         </p>
 
-
         <p>
-
-            FIT3179 Data Visualisation 2 ·
-            October 2026 ·
-            Built with Vega-Lite
-
+            Non-commercial educational project. Pokémon and
+            related marks belong to their respective owners;
+            this website is not affiliated with or endorsed
+            by The Pokémon Company.
         </p>
 
     </footer>
